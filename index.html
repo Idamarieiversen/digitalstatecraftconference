@@ -344,8 +344,16 @@
     margin-bottom: 0.6rem;
     cursor: pointer;
     transition: background 0.15s, border-color 0.15s;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+    -webkit-user-select: none;
   }
   .keynote-card:hover { background: var(--surface); border-color: var(--blue); }
+  .keynote-card * { pointer-events: none; }
   .keynote-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
   .keynote-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); margin-top: 0.15rem; }
   .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; letter-spacing:0.05em; }
