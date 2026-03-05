@@ -332,6 +332,64 @@
     h1 { font-size: 2rem; }
     .topics-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── KEYNOTE MODALS ── */
+  .keynote-card {
+    border: 1px solid var(--rule);
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .keynote-card:hover { background: var(--surface); border-color: var(--blue); }
+  .keynote-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+  .keynote-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); margin-top: 0.15rem; }
+  .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; letter-spacing:0.05em; }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: #fff;
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem 2.2rem;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  }
+  .modal-session {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.6rem;
+  }
+  .modal-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .modal-title { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 1.2rem; font-style: italic; }
+  .modal-body { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: #333; }
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0.2rem 0.5rem;
+  }
+  .modal-close:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -409,14 +467,14 @@
         <div class="day-label">Thursday, 16 April</div>
         <div class="session break"><div class="session-time">09:00</div><div class="session-info"><div class="session-title">Registration &amp; Coffee</div></div></div>
         <div class="session"><div class="session-time">09:30</div><div class="session-info"><div class="session-title">Opening Remarks</div><div class="session-sub">Welcome by the organising committee</div></div></div>
-        <div class="session"><div class="session-time">09:50</div><div class="session-info"><div class="session-title">Keynotes</div><div class="session-sub">TBA</div></div></div>
+        <div class="session"><div class="session-time">09:50</div><div class="session-info"><div class="session-title">Keynote Session One</div><div class="session-sub">Cecilia Rikap &amp; Paolo Gerbaudo — respondent: Lina Dencik</div></div></div><div class="session"><div class="session-time">~14:00</div><div class="session-info"><div class="session-title">Keynote Session Two</div><div class="session-sub">Dang Nguyen &amp; Fenwick McKelvey — respondent: Rob W. Gehl</div></div></div>
         <div class="session">
           <div class="session-time">11:30</div>
           <div class="session-info">
             <div class="session-title">Paper Presentations — Morning <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">Room 1: Infrastructural Power &amp; Politics I</div>
-            <div class="session-sub">Room 2: AI in the State, Expertise &amp; Legitimacy I</div>
-            <div class="session-sub">Room 3: Digital Sovereignty in Theory &amp; Practice I</div>
+            <div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics I</div>
+            <div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy I</div>
+            <div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice I</div>
           </div>
         </div>
         <div class="session break"><div class="session-time">13:00</div><div class="session-info"><div class="session-title">Lunch</div></div></div>
@@ -424,9 +482,9 @@
           <div class="session-time">14:20</div>
           <div class="session-info">
             <div class="session-title">Paper Presentations — Afternoon I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">Room 1: Authoritarian Currents I</div>
-            <div class="session-sub">Room 2: AI in the State, Expertise &amp; Legitimacy II</div>
-            <div class="session-sub">Room 3: Digital Sovereignty: Alternatives &amp; Lock-ins I</div>
+            <div class="session-sub">PSH LG01: Authoritarian Currents I</div>
+            <div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy II</div>
+            <div class="session-sub">PSH 302: Digital Sovereignty: Alternatives &amp; Lock-ins I</div>
           </div>
         </div>
         <div class="session break"><div class="session-time">15:50</div><div class="session-info"><div class="session-title">Coffee Break</div></div></div>
@@ -434,9 +492,9 @@
           <div class="session-time">16:10</div>
           <div class="session-info">
             <div class="session-title">Paper Presentations — Afternoon II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">Room 1: Authoritarian Currents II</div>
-            <div class="session-sub">Room 2: Digital Transformation I</div>
-            <div class="session-sub">Room 3: Digital Sovereignty in Theory &amp; Practice II</div>
+            <div class="session-sub">PSH LG01: Authoritarian Currents II</div>
+            <div class="session-sub">PSH 326: Digital Transformation I</div>
+            <div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice II</div>
           </div>
         </div>
         <div class="session break"><div class="session-time">17:40</div><div class="session-info"><div class="session-title">Drinks at The Rose</div><div class="session-sub">The Rose Pub, directly opposite New Cross Gate Station</div></div></div>
@@ -448,9 +506,9 @@
           <div class="session-time">09:30</div>
           <div class="session-info">
             <div class="session-title">Paper Presentations — Morning I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">Room 1: Infrastructural Power &amp; Politics II</div>
-            <div class="session-sub">Room 2: Citizens, Users &amp; Citizenship I</div>
-            <div class="session-sub">Room 3: Digital Transformation II</div>
+            <div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics II</div>
+            <div class="session-sub">PSH 326: Citizens, Users &amp; Citizenship I</div>
+            <div class="session-sub">PSH 302: Digital Transformation II</div>
           </div>
         </div>
         <div class="session break"><div class="session-time">11:00</div><div class="session-info"><div class="session-title">Break</div></div></div>
@@ -458,9 +516,9 @@
           <div class="session-time">11:10</div>
           <div class="session-info">
             <div class="session-title">Paper Presentations — Morning II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">Room 1: Digital Transformation III</div>
-            <div class="session-sub">Room 2: Digital Sovereignty: Alternatives &amp; Lock-ins II</div>
-            <div class="session-sub">Room 3: Citizens, Users &amp; Citizenship II</div>
+            <div class="session-sub">PSH LG01: Digital Transformation III</div>
+            <div class="session-sub">PSH 326: Digital Sovereignty: Alternatives &amp; Lock-ins II</div>
+            <div class="session-sub">PSH 302: Citizens, Users &amp; Citizenship II</div>
           </div>
         </div>
         <div class="session break"><div class="session-time">12:40</div><div class="session-info"><div class="session-title">Lunch</div></div></div>
@@ -468,8 +526,8 @@
           <div class="session-time">14:00</div>
           <div class="session-info">
             <div class="session-title">Paper Presentations — Afternoon <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">Room 1: Digital Sovereignty: Alternatives &amp; Lock-ins III</div>
-            <div class="session-sub">Room 2: State &amp; Private Entanglements</div>
+            <div class="session-sub">PSH LG01: Digital Sovereignty: Alternatives &amp; Lock-ins III</div>
+            <div class="session-sub">PSH 326: State &amp; Private Entanglements</div>
           </div>
         </div>
         <div class="session break"><div class="session-time">15:40</div><div class="session-info"><div class="session-title">Break</div></div></div>
@@ -558,462 +616,462 @@
           <td>Alexei Tsinovoi & Ask Greve</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Transformation II</td>
         </tr>
         <tr>
           <td>Alexander Campolo</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy I</td>
         </tr>
         <tr>
           <td>Anirban Mukhopadhyay</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents II</td>
         </tr>
         <tr>
           <td>Anne Sofie Gammelgaard Gregersen</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents II</td>
         </tr>
         <tr>
           <td>Anuradha Sajjanhar</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy I</td>
         </tr>
         <tr>
           <td>Bastian Manteuffel</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics I</td>
         </tr>
         <tr>
           <td>Becky Kazansky & Lina Dencik</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy I</td>
         </tr>
         <tr>
           <td>Bidisha Chaudhuri & Sookthi Kav</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>State & Private Entanglements</td>
         </tr>
         <tr>
           <td>Boxi Wu</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics I</td>
         </tr>
         <tr>
           <td>Camille Girard-Chanudet</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy II</td>
         </tr>
         <tr>
           <td>Carina R. Nasser & Mattéo Bard</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Transformation III</td>
         </tr>
         <tr>
           <td>Chiara Poletti</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy II</td>
         </tr>
         <tr>
           <td>Clara Iglesias Keller & Julia Pohle</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>State & Private Entanglements</td>
         </tr>
         <tr>
           <td>Damiano Razzoli</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
         </tr>
         <tr>
           <td>Dan McQuillan</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents I</td>
         </tr>
         <tr>
           <td>David Moats</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy II</td>
         </tr>
         <tr>
           <td>Dmitry Kuznetsov & Alex Gekker</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents I</td>
         </tr>
         <tr>
           <td>Dr Nika Mahnic</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics II</td>
         </tr>
         <tr>
           <td>Dr Paloma Viejo Otero & Dr Eugenia Siapera</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
         </tr>
         <tr>
           <td>Dominik Piétron</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>State & Private Entanglements</td>
         </tr>
         <tr>
           <td>Emilie Mørch Groth</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
         </tr>
         <tr>
           <td>Eva Iris Otto, Sofie Flensburg & Signe Sophus Lai</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
         </tr>
         <tr>
           <td>Frederik Schade</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice I</td>
         </tr>
         <tr>
           <td>Freyja van den Boom</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy II</td>
         </tr>
         <tr>
           <td>Gavin Duffy</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics I</td>
         </tr>
         <tr>
           <td>Gianmarco Cristofari</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
         </tr>
         <tr>
           <td>Gregory Asmolov</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents I</td>
         </tr>
         <tr>
           <td>Gro Stueland Skorpen</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
         </tr>
         <tr>
           <td>Harsha Man Maharjan</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
         </tr>
         <tr>
           <td>Ida Marie Iversen & Maja Hvarregaard Pedersen</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice I</td>
         </tr>
         <tr>
           <td>James Rosenberg</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Citizens, Users & Citizenship II</td>
         </tr>
         <tr>
           <td>Janine Patricia Santos</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice I</td>
         </tr>
         <tr>
           <td>Jessamy Perriam</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Transformation II</td>
         </tr>
         <tr>
           <td>Jess Brand</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Transformation I</td>
         </tr>
         <tr>
           <td>Joao C. Magalhaes & Edemilson Parana</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice II</td>
         </tr>
         <tr>
           <td>Julia Valeska Schröder</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics I</td>
         </tr>
         <tr>
           <td>Karine Côté-Boucher & Mireille Paquet</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Transformation II</td>
         </tr>
         <tr>
           <td>Keren Weitzberg, Margie Cheesman, Aaron Martin, Hanna Stoll & Isadora Dullaert</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Citizens, Users & Citizenship I</td>
         </tr>
         <tr>
           <td>Krystian Łukasik & Renata Włoch</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Transformation I</td>
         </tr>
         <tr>
           <td>Lasse Uhrskov Kristensen</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
         </tr>
         <tr>
           <td>Lianrui Jia & Ting Luo</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents II</td>
         </tr>
         <tr>
           <td>Loup Cellard & Clément Marquet</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics II</td>
         </tr>
         <tr>
           <td>Mait Kask, Andra Siibak & Maris Männiste</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Transformation III</td>
         </tr>
         <tr>
           <td>Marguerite Borelli</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice II</td>
         </tr>
         <tr>
           <td>Margarita Boenig-Liptsin</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Transformation III</td>
         </tr>
         <tr>
           <td>Matilde Bro, Rebecca Adler-Nissen & Kristin Anabel Eggeling</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics II</td>
         </tr>
         <tr>
           <td>Matt Spencer</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
         </tr>
         <tr>
           <td>Nathan Davies</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Transformation I</td>
         </tr>
         <tr>
           <td>Oisín O'Brien</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Citizens, Users & Citizenship I</td>
         </tr>
         <tr>
           <td>Olessya Kirtchik</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>AI in the State, Expertise & Legitimacy I</td>
         </tr>
         <tr>
           <td>Oscar Arruda d'Alva, Rodrigo Santaella-Gonçalves & Edemilson Paraná</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
         </tr>
         <tr>
           <td>Pedro Burity, Rafael Grohmann, Kenzo Soares Seto & Rafael De Toni</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
         </tr>
         <tr>
           <td>Petter Falk</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Digital Transformation I</td>
         </tr>
         <tr>
           <td>Rachel Humphris & Nika Mahnič</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Citizens, Users & Citizenship I</td>
         </tr>
         <tr>
           <td>Roei Davidson</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents I</td>
         </tr>
         <tr>
           <td>Roger Burrows & Nicholas Gane</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice I</td>
         </tr>
         <tr>
           <td>Roser Pujads & Daniel Curto-Millet</td>
           <td>Thu 16 Apr</td>
           <td>14:20–15:50</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
         </tr>
         <tr>
           <td>Ruth Garland</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Authoritarian Currents II</td>
         </tr>
         <tr>
           <td>Sacha Robehmed</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Infrastructural Power & Politics II</td>
         </tr>
         <tr>
           <td>Samuele Fratini</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice II</td>
         </tr>
         <tr>
           <td>Sandeep Mertia</td>
           <td>Thu 16 Apr</td>
           <td>11:30–13:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice I</td>
         </tr>
         <tr>
           <td>Sérgio Barbosa</td>
           <td>Thu 16 Apr</td>
           <td>16:10–17:20</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Sovereignty in Theory & Practice II</td>
         </tr>
         <tr>
           <td>Siddharth de Souza, Emrys Schoemaker & Thomas Kirk</td>
           <td>Fri 17 Apr</td>
           <td>14:00–15:40</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>State & Private Entanglements</td>
         </tr>
         <tr>
           <td>Sruthi Vanguri</td>
           <td>Fri 17 Apr</td>
           <td>11:10–12:40</td>
-          <td>Room 1</td>
+          <td>PSH LG01</td>
           <td>Digital Transformation III</td>
         </tr>
         <tr>
           <td>Torjus Solheim Eckhoff</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 3</td>
+          <td>PSH 302</td>
           <td>Digital Transformation II</td>
         </tr>
         <tr>
           <td>Zhou Pei</td>
           <td>Fri 17 Apr</td>
           <td>09:30–11:00</td>
-          <td>Room 2</td>
+          <td>PSH 326</td>
           <td>Citizens, Users & Citizenship I</td>
         </tr>
         </tbody>
@@ -1041,27 +1099,9 @@
   </main>
 
   <aside class="side-col">
-    <div class="side-block">
-      <span class="side-title">Key Dates</span>
-      <div class="key-date"><div class="kd-date">12 Dec</div><div class="kd-text">Abstract deadline (passed)</div></div>
       <div class="key-date"><div class="kd-date">16 Apr</div><div class="kd-text">Day 1 — Goldsmiths, London<br><span style="font-size:0.68rem;color:var(--muted)">09:00–17:40 + drinks</span></div></div>
       <div class="key-date"><div class="kd-date">17 Apr</div><div class="kd-text">Day 2 — Goldsmiths, London<br><span style="font-size:0.68rem;color:var(--muted)">09:30–17:30</span></div></div>
       <div class="key-date"><div class="kd-date">TBC</div><div class="kd-text">Individual slots communicated</div></div>
-    </div>
-
-    <div class="side-block">
-      <span class="side-title">At a Glance</span>
-      <div class="stat-row"><span>Accepted abstracts</span><span class="num">66</span></div>
-      <div class="stat-row"><span>Registered attendees</span><span class="num">88</span></div>
-      <div class="stat-row"><span>Invited speakers</span><span class="num">5</span></div>
-      <div class="stat-row"><span>Days</span><span class="num">2</span></div>
-    </div>
-
-    <div class="side-block">
-      <span class="side-title">Organisers</span>
-      <div class="organiser-item">Irina Papazu<span>IT-University of Copenhagen</span></div>
-      <div class="organiser-item">Jessamy Perriam<span>ITU / Australian National University</span></div>
-      <div class="organiser-item">Nathaniel Tkacz <em style="font-size:0.68rem;color:var(--muted)">(co-host)</em><span>Goldsmiths, University of London</span></div>
     </div>
 
     <div class="side-block">
