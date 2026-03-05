@@ -76,7 +76,11 @@
     border-bottom: 1px solid var(--rule);
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 0.1s;
+    margin: 0 auto;
+    text-align: center;
   }
+  .hero-meta { justify-content: center; }
+  .hero-intro { margin: 0 auto; text-align: left; }
 
   .issue-line {
     font-family: var(--mono);
@@ -1099,9 +1103,39 @@
   </main>
 
   <aside class="side-col">
-      <div class="key-date"><div class="kd-date">16 Apr</div><div class="kd-text">Day 1 — Goldsmiths, London<br><span style="font-size:0.68rem;color:var(--muted)">09:00–17:40 + drinks</span></div></div>
-      <div class="key-date"><div class="kd-date">17 Apr</div><div class="kd-text">Day 2 — Goldsmiths, London<br><span style="font-size:0.68rem;color:var(--muted)">09:30–17:30</span></div></div>
-      <div class="key-date"><div class="kd-date">TBC</div><div class="kd-text">Individual slots communicated</div></div>
+      <div class="side-block">
+        <span class="side-title">Keynote Speakers</span>
+        <div class="keynote-card" onclick="openModal('rikap')">
+          <div class="keynote-name">Dr Cecilia Rikap</div>
+          <div class="keynote-role">Session One</div>
+          <div class="keynote-hint">Read abstract →</div>
+        </div>
+        <div class="keynote-card" onclick="openModal('gerbaudo')">
+          <div class="keynote-name">Dr Paolo Gerbaudo</div>
+          <div class="keynote-role">Session One</div>
+          <div class="keynote-hint">Read abstract →</div>
+        </div>
+        <div class="keynote-card" onclick="openModal('dencik')">
+          <div class="keynote-name">Lina Dencik</div>
+          <div class="keynote-role">Session One — Respondent</div>
+          <div class="keynote-hint">Read abstract →</div>
+        </div>
+        <div class="keynote-card" onclick="openModal('nguyen')">
+          <div class="keynote-name">Dang Nguyen</div>
+          <div class="keynote-role">Session Two</div>
+          <div class="keynote-hint">Read abstract →</div>
+        </div>
+        <div class="keynote-card" onclick="openModal('mckelvey')">
+          <div class="keynote-name">Fenwick McKelvey</div>
+          <div class="keynote-role">Session Two</div>
+          <div class="keynote-hint">Read abstract →</div>
+        </div>
+        <div class="keynote-card" onclick="openModal('gehl')">
+          <div class="keynote-name">Rob W. Gehl</div>
+          <div class="keynote-role">Session Two — Respondent</div>
+          <div class="keynote-hint">Read abstract →</div>
+        </div>
+      </div>
     </div>
 
     <div class="side-block">
