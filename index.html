@@ -347,13 +347,11 @@
     display: block;
     width: 100%;
     box-sizing: border-box;
-    position: relative;
-    z-index: 1;
-    user-select: none;
-    -webkit-user-select: none;
+    background: #fff;
+    text-align: left;
+    font-family: var(--sans);
   }
   .keynote-card:hover { background: var(--surface); border-color: var(--blue); }
-  .keynote-card * { pointer-events: none; }
   .keynote-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
   .keynote-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); margin-top: 0.15rem; }
   .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; letter-spacing:0.05em; }
@@ -1113,36 +1111,36 @@
   <aside class="side-col">
       <div class="side-block">
         <span class="side-title">Keynote Speakers</span>
-        <div class="keynote-card" onclick="openModal('rikap')">
+        <button class="keynote-card" onclick="openModal('rikap')">
           <div class="keynote-name">Dr Cecilia Rikap</div>
           <div class="keynote-role">Session One</div>
           <div class="keynote-hint">Read abstract →</div>
-        </div>
-        <div class="keynote-card" onclick="openModal('gerbaudo')">
+        </button>
+        <button class="keynote-card" onclick="openModal('gerbaudo')">
           <div class="keynote-name">Dr Paolo Gerbaudo</div>
           <div class="keynote-role">Session One</div>
           <div class="keynote-hint">Read abstract →</div>
-        </div>
-        <div class="keynote-card" onclick="openModal('dencik')">
+        </button>
+        <button class="keynote-card" onclick="openModal('dencik')">
           <div class="keynote-name">Lina Dencik</div>
           <div class="keynote-role">Session One — Respondent</div>
           <div class="keynote-hint">Read abstract →</div>
-        </div>
-        <div class="keynote-card" onclick="openModal('nguyen')">
+        </button>
+        <button class="keynote-card" onclick="openModal('nguyen')">
           <div class="keynote-name">Dang Nguyen</div>
           <div class="keynote-role">Session Two</div>
           <div class="keynote-hint">Read abstract →</div>
-        </div>
-        <div class="keynote-card" onclick="openModal('mckelvey')">
+        </button>
+        <button class="keynote-card" onclick="openModal('mckelvey')">
           <div class="keynote-name">Fenwick McKelvey</div>
           <div class="keynote-role">Session Two</div>
           <div class="keynote-hint">Read abstract →</div>
-        </div>
-        <div class="keynote-card" onclick="openModal('gehl')">
+        </button>
+        <button class="keynote-card" onclick="openModal('gehl')">
           <div class="keynote-name">Rob W. Gehl</div>
           <div class="keynote-role">Session Two — Respondent</div>
           <div class="keynote-hint">Read abstract →</div>
-        </div>
+        </button>
       </div>
     </div>
 
@@ -1175,4 +1173,123 @@
     const post = document.createElement('div');
     post.className = 'forum-post';
     post.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease';
-    post.innerHTML = `<div class="forum-post-header"
+    post.innerHTML = `<div class="forum-post-header"`;
+    document.getElementById('forum-posts').appendChild(post);
+    setTimeout(() => { post.style.opacity = '1'; post.style.transform = 'none'; }, 10);
+    document.getElementById('forum-msg').value = '';
+    document.getElementById('forum-name').value = '';
+  }
+  document.querySelectorAll('#speaker-table tbody tr').forEach((tr, i) => {
+    tr.style.background = i % 2 === 0 ? '#f7f9ff' : '#ffffff';
+    tr.querySelectorAll('td').forEach(td => {
+      td.style.padding = '0.45rem 0.75rem';
+      td.style.borderBottom = '1px solid var(--rule)';
+      td.style.verticalAlign = 'top';
+      td.style.lineHeight = '1.45';
+    });
+  });
+  function filterSpeakers() {
+    const q = document.getElementById('speaker-search').value.toLowerCase();
+    document.querySelectorAll('#speaker-table tbody tr').forEach(tr => {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+</script>
+
+<div class="modal-overlay" id="modal-rikap" onclick="if(event.target===this)closeModal('rikap')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('rikap')">&#x2715; Close</button>
+    <div class="modal-session">Keynote Session One</div>
+    <div class="modal-name">Dr Cecilia Rikap</div>
+    <div class="modal-title">Digital sovereignty crossroads</div>
+    <div class="modal-body">
+      <p>The presence of Big Tech leaders in the front row at Trump's inauguration signals a ruling coalition capable of controlling nearly every organization and nation that becomes reliant on their AI and other digital technologies. This alliance between corporate and state superpowers is strategically positioned to exert global dominance by controlling the social production of information and knowledge in all its forms.</p>
+      <p>In Europe, responses have differed. In the United Kingdom, the tech deal signed with the US signals that the UK government is prioritizing the promise of digital-driven economic growth at the expense of sovereignty. The case of the European Union is equally crossed by the same trade-offs.</p>
+      <p>This presentation explores how the UK and the EU are responding to pressures from the US government and US Big Tech, considering trade-offs between AI's potential for economic growth, geopolitical alliances, digital technologies' socio-ecological footprint, Big Tech's control of the AI value chain, and digital sovereignty.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-gerbaudo" onclick="if(event.target===this)closeModal('gerbaudo')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('gerbaudo')">&#x2715; Close</button>
+    <div class="modal-session">Keynote Session One</div>
+    <div class="modal-name">Dr Paolo Gerbaudo</div>
+    <div class="modal-title">Self-Deport Apps: The Pervasive Control of the Platform State and the New Digital Imperialism</div>
+    <div class="modal-body">
+      <p>This presentation challenges the popular idea that in the digital age the state is weakening in favour of multinational corporations, arguing instead that platformization leads to a profound reinvigoration of state power, particularly for states such as the US that have control over their own technological ecosystem.</p>
+      <p>As governments embed reprogrammable data infrastructures into their core institutions, they gain new capacities for algorithmic legibility and behavioral steerability. This shift enables a pervasive yet often invisible statecraft, where the state re-integrates governance functions.</p>
+      <p>Drawing examples from Palantir and the use of AI by ICE, the presentation explores the implications of this emerging paradigm for the future of power, citizenship, and our understanding of the nature of the state in the digital era.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dencik" onclick="if(event.target===this)closeModal('dencik')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('dencik')">&#x2715; Close</button>
+    <div class="modal-session">Keynote Session One &mdash; Respondent</div>
+    <div class="modal-name">Lina Dencik</div>
+    <div class="modal-title">Respondent</div>
+    <div class="modal-body"><p>Abstract to be announced.</p></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-nguyen" onclick="if(event.target===this)closeModal('nguyen')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('nguyen')">&#x2715; Close</button>
+    <div class="modal-session">Keynote Session Two</div>
+    <div class="modal-name">Dang Nguyen</div>
+    <div class="modal-title">Statecraft, Sovereignty and Digital Government as Gendered Projects</div>
+    <div class="modal-body">
+      <p>Statecraft, Sovereignty and Digital Government are intensely gendered projects, organised around masculinised fantasies of command, foresight, and control that are materially embedded in technical systems and administrative routines.</p>
+      <p>Digital governance does not simply modernise the state &mdash; it hardens particular sovereign dispositions by automating judgement, distancing responsibility, and reconfiguring care as compliance.</p>
+      <p>This paper contends that contemporary digital statecraft consolidates sovereignty while disavowing the violence and exclusions it produces, and considers how attention to gender unsettles the apparent coherence of digital sovereignty.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-mckelvey" onclick="if(event.target===this)closeModal('mckelvey')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('mckelvey')">&#x2715; Close</button>
+    <div class="modal-session">Keynote Session Two</div>
+    <div class="modal-name">Fenwick McKelvey</div>
+    <div class="modal-title">The New Technologies of Freedom: Mainframes, PCs, and AI</div>
+    <div class="modal-body">
+      <p>Technologies co-create sensibilities of political freedom. Drawing on research from the forthcoming book <em>SimPolitics</em>, this presentation explores how political freedoms have been expressed through and with computational technologies.</p>
+      <p>Mainframe computers promoted the development of privacy law and personal liberties. The personal computer was articulated as a general-purpose technology whose social worth hinged on networked individualism. Minicomputers helped rearticulate a micropolitical collectivism, leaping from file sharing to Kony 2012 and late social media.</p>
+      <p>Artificial intelligence is a massive privacy violation and a negation of decades of networked peer production, but also ascendent and mundane. Through historical reflection, this presentation questions the emerging mode of political freedoms in an age of AI.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-gehl" onclick="if(event.target===this)closeModal('gehl')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('gehl')">&#x2715; Close</button>
+    <div class="modal-session">Keynote Session Two &mdash; Respondent</div>
+    <div class="modal-name">Rob W. Gehl</div>
+    <div class="modal-title">Respondent</div>
+    <div class="modal-body"><p>Abstract to be announced.</p></div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(function(m) {
+        m.classList.remove('active');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+</body>
+</html>
