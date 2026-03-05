@@ -3,443 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Statecraft, Sovereignty & Digital Government — Symposium 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Statecraft, Sovereignty &amp; Digital Government — April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #111111;
-    --bg: #ffffff;
-    --surface: #f7f7f5;
-    --rule: #e0e0db;
     --blue: #1a3a6b;
-    --teal: #4a90c4;
-    --muted: #888880;
-    --sans: 'IBM Plex Sans', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
+    --accent: #4a90c4;
+    --ink: #111111;
+    --muted: #888;
+    --rule: #e0e0e0;
+    --surface: #f7f9ff;
     --serif: 'Libre Baskerville', Georgia, serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: system-ui, -apple-system, sans-serif;
   }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; font-size: 1rem; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; padding: 0 3rem; height: 52px; }
+  .nav-brand { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--blue); }
 
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  /* ── HEADER ── */
-  header {
-    border-bottom: 1px solid var(--rule);
-    position: sticky;
-    top: 0;
-    background: var(--bg);
-    z-index: 100;
-  }
-
-  .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.65rem 3rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .journal-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  nav { display: flex; gap: 2.5rem; padding: 0.65rem 3rem; }
-
-  nav a {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  nav a:hover { color: var(--blue); }
-
-  /* ── HERO ── */
-  .hero {
-    padding: 5rem 3rem 4rem;
-    max-width: 860px;
-    border-bottom: 1px solid var(--rule);
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.1s;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .hero-meta { justify-content: center; }
-  .hero-intro { margin: 0 auto; text-align: left; }
-
-  .issue-line {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 1.5rem;
-  }
-
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4.5vw, 3.4rem);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.5rem;
-    color: var(--ink);
-  }
-
-  h1 em { font-style: italic; color: var(--blue); }
-
-  .hero-intro {
-    font-size: 1rem;
-    font-weight: 300;
-    color: #444;
-    line-height: 1.8;
-    max-width: 680px;
-  }
-
-  .hero-meta {
-    display: flex;
-    gap: 3rem;
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--rule);
-    flex-wrap: wrap;
-  }
-
-  .meta-label {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: block;
-    margin-bottom: 0.2rem;
-  }
-
+  /* HERO */
+  .hero { padding: 5rem 3rem 4rem; max-width: 860px; border-bottom: 1px solid var(--rule); opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; margin: 0 auto; text-align: center; }
+  .hero-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  h1 { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.5rem; color: var(--ink); }
+  h1 em { color: var(--blue); font-style: italic; }
+  .hero-intro { font-size: 0.95rem; font-weight: 300; color: #444; line-height: 1.8; max-width: 640px; margin: 0 auto 2rem; text-align: left; }
+  .hero-meta { display: flex; gap: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); justify-content: center; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .meta-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .meta-value { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
 
-  /* ── LAYOUT ── */
-  .content-grid {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-
+  /* LAYOUT */
+  .content-grid { display: grid; grid-template-columns: 1fr 280px; max-width: 1080px; margin: 0 auto; }
   .main-col { border-right: 1px solid var(--rule); padding: 3rem; }
   .side-col { padding: 3rem 2rem; }
 
-  section {
-    margin-bottom: 4rem;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards;
-  }
-
+  section { margin-bottom: 4rem; opacity: 0; animation: fadeUp 0.6s ease forwards; }
   section:nth-child(1) { animation-delay: 0.2s; }
   section:nth-child(2) { animation-delay: 0.3s; }
   section:nth-child(3) { animation-delay: 0.4s; }
   section:nth-child(4) { animation-delay: 0.5s; }
   section:nth-child(5) { animation-delay: 0.6s; }
-  section:nth-child(6) { animation-delay: 0.7s; }
 
-  .section-head {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1.5px solid var(--ink);
-  }
+  .section-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .section-num { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); }
+  h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--ink); }
+  h3 { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 1rem; }
+  p { margin-bottom: 1rem; font-size: 0.92rem; }
 
-  .section-num { font-family: var(--mono); font-size: 0.62rem; color: var(--teal); letter-spacing: 0.1em; }
-
-  h2 { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; }
-
-  h3 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.75rem; color: var(--ink); }
-
-  p { font-size: 0.93rem; color: #333; margin-bottom: 1rem; font-weight: 300; line-height: 1.75; }
-
-  /* ── SPEAKERS ── */
-  .speakers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-    margin-bottom: 1rem;
-  }
-
-  .speaker-card { background: var(--bg); padding: 1.1rem 1rem; transition: background 0.15s; }
-  .speaker-card:hover { background: var(--surface); }
-  .speaker-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--ink); }
-  .speaker-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); line-height: 1.4; }
-
-  /* ── TOPICS ── */
+  /* TOPICS GRID */
   .topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 1rem; }
+  .topic-item { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; padding: 0.5rem 0.75rem; border: 1px solid var(--rule); color: var(--ink); transition: border-color 0.15s, background 0.15s; }
+  .topic-item:hover { border-color: var(--accent); background: #eef4fb; }
 
-  .topic-item {
-    font-size: 0.82rem;
-    font-weight: 300;
-    padding: 0.5rem 0.75rem;
-    background: var(--surface);
-    border-left: 2px solid var(--teal);
-    line-height: 1.4;
-    color: #333;
-    transition: border-color 0.15s, background 0.15s;
-  }
-
-  .topic-item:hover { border-color: var(--blue); background: #eef4fb; }
-
-  /* ── BURSARY ── */
-  .bursary-box {
-    background: #eef4fb;
-    border: 1px solid #b8d0e8;
-    border-left: 3px solid var(--teal);
-    padding: 1.4rem 1.6rem;
-    margin: 1.5rem 0;
-  }
-
-  .bursary-label {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--teal);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .bursary-box p { margin-bottom: 0; color: #333; }
-
-  /* ── PROGRAMME ── */
+  /* PROGRAMME */
   .day-block { margin-bottom: 2.5rem; }
-
-  .day-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--bg);
-    background: var(--blue);
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .session {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    border-left: 2px solid var(--rule);
-    margin-bottom: 0.1rem;
-    transition: border-color 0.15s;
-  }
-
-  .session:hover { border-color: var(--blue); }
-
-  .session-time {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--muted);
-    padding: 0.55rem 0.75rem 0.55rem 0.65rem;
-    border-right: 1px solid var(--rule);
-    white-space: nowrap;
-  }
-
-  .session-info { padding: 0.55rem 1rem; }
+  .day-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--blue); }
+  .session { display: flex; gap: 1.5rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+  .session.break { opacity: 0.5; }
+  .session-time { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); min-width: 52px; padding-top: 0.15rem; }
   .session-title { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
-  .session-sub { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
-  .session.break .session-title { font-style: italic; color: var(--muted); font-weight: 300; }
+  .session-sub { font-size: 0.77rem; font-weight: 300; color: var(--muted); margin-top: 0.1rem; }
 
-  /* ── PRACTICAL ── */
-  .info-card { border: 1px solid var(--rule); padding: 1.1rem 1.4rem; margin-bottom: 0.75rem; }
-  .info-card-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; display: block; }
-  .info-card p { font-size: 0.87rem; margin-bottom: 0; }
+  /* PRACTICAL INFO */
+  .info-card { border: 1px solid var(--rule); padding: 1rem 1.2rem; margin-bottom: 0.75rem; }
+  .info-card-title { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 0.83rem; font-weight: 300; margin: 0; color: #333; }
+  .info-card p + p { margin-top: 0.4rem; }
 
-  /* ── UPDATES ── */
-  .update-item {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 1rem;
-  }
-
-  .update-date { font-family: var(--mono); font-size: 0.67rem; color: var(--muted); padding-top: 0.1rem; line-height: 1.4; }
-  .update-text { font-size: 0.88rem; font-weight: 300; line-height: 1.65; color: #333; }
-  .update-text strong { font-weight: 600; color: var(--ink); }
-
-  /* ── FORUM ── */
+  /* FORUM */
   .forum-post { border: 1px solid var(--rule); margin-bottom: 0.75rem; }
   .forum-post-header { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 1rem; background: var(--surface); border-bottom: 1px solid var(--rule); }
-  .forum-author { font-family: var(--mono); font-size: 0.67rem; color: var(--muted); }
+  .forum-author { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
   .forum-author span { color: var(--ink); font-weight: 500; }
-  .forum-ts { font-family: var(--mono); font-size: 0.62rem; color: var(--rule); }
-  .forum-body { padding: 0.85rem 1rem; font-size: 0.87rem; font-weight: 300; line-height: 1.6; color: #333; }
-
-  .forum-input-area { margin-top: 1.25rem; border: 1px solid var(--rule); }
-  .forum-input-area textarea { width: 100%; padding: 1rem; font-family: var(--sans); font-size: 0.87rem; font-weight: 300; border: none; resize: vertical; min-height: 80px; background: transparent; color: var(--ink); outline: none; }
-  .forum-input-area textarea::placeholder { color: #ccc; }
-  .forum-input-footer { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; border-top: 1px solid var(--rule); }
-  .forum-name-input { font-family: var(--mono); font-size: 0.7rem; border: none; border-bottom: 1px solid var(--rule); background: transparent; color: var(--ink); outline: none; width: 180px; padding: 0.2rem 0; }
-  .forum-name-input::placeholder { color: #ccc; }
-
+  .forum-ts { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); }
+  .forum-body { padding: 0.75rem 1rem; font-size: 0.83rem; font-weight: 300; line-height: 1.65; }
+  .forum-input-area { margin-top: 1.5rem; border: 1px solid var(--rule); }
+  .forum-input-area textarea { width: 100%; padding: 0.75rem 1rem; font-family: var(--sans); font-size: 0.83rem; font-weight: 300; border: none; resize: vertical; min-height: 80px; outline: none; }
+  .forum-input-footer { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; border-top: 1px solid var(--rule); background: var(--surface); }
+  .forum-name-input { font-family: var(--mono); font-size: 0.65rem; border: none; background: none; outline: none; color: var(--ink); }
   .btn-post { font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--blue); color: #fff; border: none; padding: 0.5rem 1.2rem; cursor: pointer; transition: background 0.15s; }
-  .btn-post:hover { background: var(--teal); }
+  .btn-post:hover { background: var(--accent); }
 
-  /* ── SIDEBAR ── */
+  /* SIDEBAR */
   .side-block { margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s; }
-  .side-title { font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); padding-bottom: 0.5rem; border-bottom: 1.5px solid var(--ink); margin-bottom: 1rem; display: block; }
+  .side-title { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
+  .contact-link { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--blue); text-decoration: none; margin-bottom: 0.4rem; }
+  .contact-link:hover { color: var(--accent); }
 
-  .key-date { display: flex; gap: 0.75rem; margin-bottom: 0.65rem; align-items: flex-start; }
-  .kd-date { font-family: var(--mono); font-size: 0.68rem; color: var(--blue); min-width: 48px; line-height: 1.5; }
-  .kd-text { font-size: 0.82rem; font-weight: 300; line-height: 1.5; color: #333; }
+  /* KEYNOTE CARDS */
+  .keynote-card { border: 1px solid var(--rule); padding: 0.9rem 1rem; margin-bottom: 0.6rem; cursor: pointer; transition: background 0.15s, border-color 0.15s; display: block; width: 100%; background: #fff; text-align: left; font-family: var(--sans); }
+  .keynote-card:hover { background: var(--surface); border-color: var(--blue); }
+  .keynote-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+  .keynote-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); margin-top: 0.15rem; }
+  .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; letter-spacing: 0.05em; }
 
-  .stat-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--rule); font-size: 0.82rem; font-weight: 300; }
-  .stat-row .num { font-family: var(--mono); font-weight: 500; color: var(--teal); }
+  /* MODALS */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem; }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #fff; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 2rem 2.2rem; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
+  .modal-session { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.6rem; }
+  .modal-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .modal-title { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 1.2rem; font-style: italic; }
+  .modal-body { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: #333; }
+  .modal-body p { margin-bottom: 0.9rem; }
+  .modal-close { position: absolute; top: 1rem; right: 1.2rem; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem; }
+  .modal-close:hover { color: var(--ink); }
 
-  .organiser-item { font-size: 0.82rem; font-weight: 400; padding: 0.35rem 0; border-bottom: 1px solid var(--rule); color: var(--ink); }
-  .organiser-item span { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 300; }
+  /* SPEAKER TABLE */
+  #speaker-search { width: 100%; padding: 0.6rem 0.9rem; font-family: var(--sans); font-size: 0.88rem; border: 1px solid var(--rule); margin-bottom: 1rem; outline: none; color: var(--ink); }
+  #speaker-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  #speaker-table thead tr { background: var(--blue); color: #fff; }
+  #speaker-table thead th { padding: 0.55rem 0.75rem; text-align: left; font-weight: 600; font-family: var(--sans); }
+  #speaker-table tbody tr:nth-child(even) { background: #f7f9ff; }
+  #speaker-table tbody td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.45; }
 
-  .contact-link { font-family: var(--mono); font-size: 0.7rem; color: var(--blue); text-decoration: none; display: block; margin-bottom: 0.4rem; }
-  .contact-link:hover { text-decoration: underline; color: var(--teal); }
+  /* FOOTER */
+  footer { border-top: 1px solid var(--rule); padding: 2rem 3rem; text-align: center; }
+  footer p { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--muted); margin: 0.2rem 0; }
 
-  /* ── FOOTER ── */
-  footer { border-top: 1px solid var(--rule); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem; background: var(--surface); }
-  footer p { font-family: var(--mono); font-size: 0.67rem; color: var(--muted); margin: 0; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
   @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1rem; }
     .content-grid { grid-template-columns: 1fr; }
     .main-col { border-right: none; padding: 2rem 1.5rem; }
     .side-col { padding: 1.5rem; border-top: 1px solid var(--rule); }
     .hero { padding: 3rem 1.5rem 2.5rem; }
-    nav { padding: 0.6rem 1.5rem; gap: 1.2rem; flex-wrap: wrap; }
-    .header-top { padding: 0.65rem 1.5rem; }
-    h1 { font-size: 2rem; }
     .topics-grid { grid-template-columns: 1fr; }
   }
-
-  /* ── KEYNOTE MODALS ── */
-  .keynote-card {
-    border: 1px solid var(--rule);
-    padding: 0.9rem 1rem;
-    margin-bottom: 0.6rem;
-    cursor: pointer;
-    transition: background 0.15s, border-color 0.15s;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    background: #fff;
-    text-align: left;
-    font-family: var(--sans);
-  }
-  .keynote-card:hover { background: var(--surface); border-color: var(--blue); }
-  .keynote-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
-  .keynote-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); margin-top: 0.15rem; }
-  .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; letter-spacing:0.05em; }
-
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-  .modal-overlay.active { display: flex; }
-  .modal-box {
-    background: #fff;
-    max-width: 640px;
-    width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 2rem 2.2rem;
-    position: relative;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-  }
-  .modal-session {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 0.6rem;
-  }
-  .modal-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
-  .modal-title { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 1.2rem; font-style: italic; }
-  .modal-body { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: #333; }
-  .modal-close {
-    position: absolute;
-    top: 1rem; right: 1.2rem;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--muted);
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0.2rem 0.5rem;
-  }
-  .modal-close:hover { color: var(--ink); }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-top">
-    <span class="journal-label">DIGI-FRONT Project · Goldsmiths, University of London</span>
-    <span class="journal-label">16–17 April 2026</span>
-  </div>
-  <nav>
+<nav>
+  <span class="nav-brand">DIGI-FRONT Project &middot; Goldsmiths, University of London</span>
+  <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#speakers">Speakers</a>
+    <a href="#speakers">Keynotes</a>
     <a href="#programme">Programme</a>
     <a href="#practical">Practical Info</a>
-    <a href="#speakers">Find Your Panel</a>
     <a href="#forum">Forum</a>
-  </nav>
-</header>
+    <a href="#find-panel">Find Your Panel</a>
+  </div>
+  <span class="nav-brand">16&ndash;17 APRIL 2026</span>
+</nav>
 
 <div class="hero">
-  <div class="issue-line">Symposium · April 2026</div>
-  <h1>Statecraft, Sovereignty<br>& <em>Digital Government</em></h1>
+  <div class="hero-label">Symposium &middot; April 2026</div>
+  <h1>Statecraft, Sovereignty<br>&amp; <em>Digital Government</em></h1>
   <p class="hero-intro">The symposium takes place at Goldsmiths, University of London, bringing together scholars within Science and Technology Studies (STS), software and platform studies, media studies, international relations, political theory and cultural studies to encourage conversation and collaboration through panels curated by the organisers. The symposium is hosted by the DIGI-FRONT project, led by Irina Papazu (IT-University of Copenhagen) and Jessamy Perriam (ITU/Australian National University), and co-hosted by Nathaniel Tkacz (Goldsmiths, University of London).</p>
   <div class="hero-meta">
-    <div class="meta-item">
-      <span class="meta-label">Dates</span>
-      <span class="meta-value">16–17 April 2026</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Venue</span>
-      <span class="meta-value">Goldsmiths, University of London</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Registered attendees</span>
-      <span class="meta-value">88</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Accepted abstracts</span>
-      <span class="meta-value">66</span>
-    </div>
+    <div class="meta-item"><span class="meta-label">Dates</span><span class="meta-value">16&ndash;17 April 2026</span></div>
+    <div class="meta-item"><span class="meta-label">Venue</span><span class="meta-value">Goldsmiths, University of London</span></div>
+    <div class="meta-item"><span class="meta-label">Registered Attendees</span><span class="meta-value">88</span></div>
+    <div class="meta-item"><span class="meta-label">Accepted Abstracts</span><span class="meta-value">66</span></div>
   </div>
 </div>
 
@@ -447,11 +174,9 @@
   <main class="main-col">
 
     <section id="about">
-      <div class="section-head">
-        <span class="section-num">§ 01</span>
-        <h2>About</h2>
-      </div>
-      <p>From early e-government experiments in the 1990s to today’s AI-driven public services, states have long sought to harness digital technologies to transform how they interact with citizens. The 2010s saw many countries collaborate on “digital transformation,” building an international community around ideals of openness and participation, while simultaneously competing in global rankings and using digital initiatives as instruments of nation branding and statecraft. These dynamics unfold within a highly turbulent geopolitical context marked by democratic backsliding, growing Big Tech dependencies, and urgency around digital sovereignty. This symposium seeks to explore how we should think about digital government and the provision of public services in light of these shifting technological and political conditions.</p>
+      <div class="section-head"><span class="section-num">&sect; 01</span><h2>About</h2></div>
+      <p>From early e-government experiments in the 1990s to today&rsquo;s AI-driven public services, states have long sought to harness digital technologies to transform how they interact with citizens. The 2010s saw many countries collaborate on &ldquo;digital transformation,&rdquo; building an international community around ideals of openness and participation, while simultaneously competing in global rankings and using digital initiatives as instruments of nation branding and statecraft.</p>
+      <p>These dynamics unfold within a highly turbulent geopolitical context marked by democratic backsliding, growing Big Tech dependencies, and urgency around digital sovereignty. This symposium seeks to explore how we should think about digital government and the provision of public services in light of these shifting technological and political conditions.</p>
       <h3>Panels</h3>
       <div class="topics-grid">
         <div class="topic-item">Infrastructural Power &amp; Politics</div>
@@ -465,81 +190,44 @@
       </div>
     </section>
 
+    <section id="speakers">
+      <div class="section-head"><span class="section-num">&sect; 02</span><h2>Keynote Speakers</h2></div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;">Click a speaker to read their abstract.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+        <button class="keynote-card" onclick="openModal('rikap')"><div class="keynote-name">Dr Cecilia Rikap</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+        <button class="keynote-card" onclick="openModal('gerbaudo')"><div class="keynote-name">Dr Paolo Gerbaudo</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+        <button class="keynote-card" onclick="openModal('dencik')"><div class="keynote-name">Lina Dencik</div><div class="keynote-role">Session One &mdash; Respondent</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+        <button class="keynote-card" onclick="openModal('nguyen')"><div class="keynote-name">Dang Nguyen</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+        <button class="keynote-card" onclick="openModal('mckelvey')"><div class="keynote-name">Fenwick McKelvey</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+        <button class="keynote-card" onclick="openModal('gehl')"><div class="keynote-name">Rob W. Gehl</div><div class="keynote-role">Session Two &mdash; Respondent</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+      </div>
+    </section>
 
     <section id="programme">
-      <div class="section-head">
-        <span class="section-num">§ 02</span>
-        <h2>Programme</h2>
-      </div>
-      <p>Each presentation is <strong>15 minutes</strong> followed by a 30-minute panel discussion. The chair will keep time. See the <a href="#speakers" style="color:var(--blue)">speaker lookup</a> below to find your panel and time slot.</p>
+      <div class="section-head"><span class="section-num">&sect; 03</span><h2>Programme</h2></div>
+      <p>Each presentation is <strong>15 minutes</strong> followed by a 30-minute panel discussion. The chair will keep time. See <a href="#find-panel" style="color:var(--blue)">Find Your Panel</a> below to find your room and time slot.</p>
 
       <div class="day-block">
         <div class="day-label">Thursday, 16 April</div>
         <div class="session break"><div class="session-time">09:00</div><div class="session-info"><div class="session-title">Registration &amp; Coffee</div></div></div>
         <div class="session"><div class="session-time">09:30</div><div class="session-info"><div class="session-title">Opening Remarks</div><div class="session-sub">Welcome by the organising committee</div></div></div>
-        <div class="session"><div class="session-time">09:50</div><div class="session-info"><div class="session-title">Keynote Session One</div><div class="session-sub">Cecilia Rikap &amp; Paolo Gerbaudo — respondent: Lina Dencik</div></div></div><div class="session"><div class="session-time">~14:00</div><div class="session-info"><div class="session-title">Keynote Session Two</div><div class="session-sub">Dang Nguyen &amp; Fenwick McKelvey — respondent: Rob W. Gehl</div></div></div>
-        <div class="session">
-          <div class="session-time">11:30</div>
-          <div class="session-info">
-            <div class="session-title">Paper Presentations — Morning <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics I</div>
-            <div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy I</div>
-            <div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice I</div>
-          </div>
-        </div>
+        <div class="session"><div class="session-time">09:50</div><div class="session-info"><div class="session-title">Keynote Session One</div><div class="session-sub">Cecilia Rikap &amp; Paolo Gerbaudo &mdash; respondent: Lina Dencik</div></div></div>
+        <div class="session"><div class="session-time">11:30</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Morning <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics I</div><div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy I</div><div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice I</div></div></div>
         <div class="session break"><div class="session-time">13:00</div><div class="session-info"><div class="session-title">Lunch</div></div></div>
-        <div class="session">
-          <div class="session-time">14:20</div>
-          <div class="session-info">
-            <div class="session-title">Paper Presentations — Afternoon I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">PSH LG01: Authoritarian Currents I</div>
-            <div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy II</div>
-            <div class="session-sub">PSH 302: Digital Sovereignty: Alternatives &amp; Lock-ins I</div>
-          </div>
-        </div>
+        <div class="session"><div class="session-time">14:20</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Afternoon I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Authoritarian Currents I</div><div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy II</div><div class="session-sub">PSH 302: Digital Sovereignty: Alternatives &amp; Lock-ins I</div></div></div>
         <div class="session break"><div class="session-time">15:50</div><div class="session-info"><div class="session-title">Coffee Break</div></div></div>
-        <div class="session">
-          <div class="session-time">16:10</div>
-          <div class="session-info">
-            <div class="session-title">Paper Presentations — Afternoon II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">PSH LG01: Authoritarian Currents II</div>
-            <div class="session-sub">PSH 326: Digital Transformation I</div>
-            <div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice II</div>
-          </div>
-        </div>
+        <div class="session"><div class="session-time">16:10</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Afternoon II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Authoritarian Currents II</div><div class="session-sub">PSH 326: Digital Transformation I</div><div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice II</div></div></div>
         <div class="session break"><div class="session-time">17:40</div><div class="session-info"><div class="session-title">Drinks at The Rose</div><div class="session-sub">The Rose Pub, directly opposite New Cross Gate Station</div></div></div>
       </div>
 
       <div class="day-block">
         <div class="day-label">Friday, 17 April</div>
-        <div class="session">
-          <div class="session-time">09:30</div>
-          <div class="session-info">
-            <div class="session-title">Paper Presentations — Morning I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics II</div>
-            <div class="session-sub">PSH 326: Citizens, Users &amp; Citizenship I</div>
-            <div class="session-sub">PSH 302: Digital Transformation II</div>
-          </div>
-        </div>
+        <div class="session"><div class="session-time">09:30</div><div class="session-info"><div class="session-title">Keynote Session Two</div><div class="session-sub">Dang Nguyen &amp; Fenwick McKelvey &mdash; respondent: Rob W. Gehl</div></div></div>
+        <div class="session"><div class="session-time">~10:30</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Morning I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics II</div><div class="session-sub">PSH 326: Citizens, Users &amp; Citizenship I</div><div class="session-sub">PSH 302: Digital Transformation II</div></div></div>
         <div class="session break"><div class="session-time">11:00</div><div class="session-info"><div class="session-title">Break</div></div></div>
-        <div class="session">
-          <div class="session-time">11:10</div>
-          <div class="session-info">
-            <div class="session-title">Paper Presentations — Morning II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">PSH LG01: Digital Transformation III</div>
-            <div class="session-sub">PSH 326: Digital Sovereignty: Alternatives &amp; Lock-ins II</div>
-            <div class="session-sub">PSH 302: Citizens, Users &amp; Citizenship II</div>
-          </div>
-        </div>
+        <div class="session"><div class="session-time">11:10</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Morning II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Digital Transformation III</div><div class="session-sub">PSH 326: Digital Sovereignty: Alternatives &amp; Lock-ins II</div><div class="session-sub">PSH 302: Citizens, Users &amp; Citizenship II</div></div></div>
         <div class="session break"><div class="session-time">12:40</div><div class="session-info"><div class="session-title">Lunch</div></div></div>
-        <div class="session">
-          <div class="session-time">14:00</div>
-          <div class="session-info">
-            <div class="session-title">Paper Presentations — Afternoon <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 × 15 min each)</span></div>
-            <div class="session-sub">PSH LG01: Digital Sovereignty: Alternatives &amp; Lock-ins III</div>
-            <div class="session-sub">PSH 326: State &amp; Private Entanglements</div>
-          </div>
-        </div>
+        <div class="session"><div class="session-time">14:00</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Afternoon <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Digital Sovereignty: Alternatives &amp; Lock-ins III</div><div class="session-sub">PSH 326: State &amp; Private Entanglements</div></div></div>
         <div class="session break"><div class="session-time">15:40</div><div class="session-info"><div class="session-title">Break</div></div></div>
         <div class="session"><div class="session-time">16:00</div><div class="session-info"><div class="session-title">Final Keynotes &amp; Roundtable</div></div></div>
         <div class="session break"><div class="session-time">17:30</div><div class="session-info"><div class="session-title">Close of Symposium</div></div></div>
@@ -547,610 +235,141 @@
     </section>
 
     <section id="practical">
-      <div class="section-head">
-        <span class="section-num">§ 03</span>
-        <h2>Practical Information</h2>
-      </div>
-      <div class="info-card"><span class="info-card-title">Venue</span><p>The conference will take place in the <strong>Professor Stuart Hall Building</strong>, Goldsmiths, University of London, New Cross, London SE14 6NW.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;">From the main campus entrance at the Richard Hoggart Building: enter and turn right, then left, walking to the back of the building past the café and Refectory. Exit onto the college green — the PSH Building is on the other side, up the hill.</p></div>
-      <div class="info-card"><span class="info-card-title">Getting There</span><p>We recommend the <strong>Citymapper app</strong> for navigating London. Use contactless payment, Oyster card, or mobile pay on public transport.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;"><strong>By train (recommended):</strong> New Cross Station (2–3 min walk) or New Cross Gate Station (5–7 min walk). Direct connections from London Bridge (approx. 7 minutes).</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>From airports:</strong> Heathrow: Elizabeth/Piccadilly Line to central London, then via London Bridge (60–75 min). Gatwick: direct train to London Bridge (30 min), then to New Cross (7 min). London City: DLR to Canada Water, then Overground to New Cross (approx. 40 min).</p></div>
-      <div class="info-card"><span class="info-card-title">Accommodation</span><p>Goldsmiths is well connected by public transport, so anywhere central works well. Below are some options near campus:</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;"><strong>Near Goldsmiths:</strong> Staycity Aparthotels London Greenwich, DoubleTree by Hilton London Greenwich, Premier Inn London Greenwich, Novotel London Greenwich.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>Higher-end:</strong> InterContinental London – The O2, London Marriott Hotel Canary Wharf.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;">Accommodation costs are not covered by the organisers.</p></div>
-      <div class="info-card"><span class="info-card-title">Catering</span><p>Lunch vouchers for the <strong>Refectory canteen</strong> will be provided each day. The café in the Professor Stuart Hall Building will be open for coffee, tea and light refreshments at your own cost. If you have dietary requirements not noted in your RSVP, please contact the organisers.</p></div>
-      <div class="info-card"><span class="info-card-title">Presentations</span><p>Each presentation is <strong>15 minutes</strong>, followed by a 30-minute panel discussion at the end of each session. The chair will keep time. Please bring your own laptop if you wish to present with slides — most rooms have HDMI connections, but bring your own adapters. We recommend not relying on campus Wi-Fi for your presentation.</p></div>
+      <div class="section-head"><span class="section-num">&sect; 04</span><h2>Practical Information</h2></div>
+      <div class="info-card"><span class="info-card-title">Venue</span><p>The conference will take place in the <strong>Professor Stuart Hall Building</strong>, Goldsmiths, University of London, New Cross, London SE14 6NW.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;">From the main campus entrance at the Richard Hoggart Building: enter and turn right, then left, walking to the back of the building past the caf&eacute; and Refectory. Exit onto the college green &mdash; the PSH Building is on the other side, up the hill.</p></div>
+      <div class="info-card"><span class="info-card-title">Getting There</span><p>We recommend the <strong>Citymapper app</strong> for navigating London. Use contactless payment, Oyster card, or mobile pay on public transport.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;"><strong>By train (recommended):</strong> New Cross Station (2&ndash;3 min walk) or New Cross Gate Station (5&ndash;7 min walk). Direct connections from London Bridge (approx. 7 minutes).</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>From airports:</strong> Heathrow: Elizabeth/Piccadilly Line to central London, then via London Bridge (60&ndash;75 min). Gatwick: direct train to London Bridge (30 min), then to New Cross (7 min). London City: DLR to Canada Water, then Overground to New Cross (approx. 40 min).</p></div>
+      <div class="info-card"><span class="info-card-title">Accommodation</span><p>Goldsmiths is well connected by public transport, so anywhere central works well.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;"><strong>Near Goldsmiths:</strong> Staycity Aparthotels London Greenwich, DoubleTree by Hilton London Greenwich, Premier Inn London Greenwich, Novotel London Greenwich.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>Higher-end:</strong> InterContinental London &ndash; The O2, London Marriott Hotel Canary Wharf.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;">Accommodation costs are not covered by the organisers.</p></div>
+      <div class="info-card"><span class="info-card-title">Catering</span><p>Lunch vouchers for the <strong>Refectory canteen</strong> will be provided each day. The caf&eacute; in the Professor Stuart Hall Building will be open for coffee, tea and light refreshments at your own cost. If you have dietary requirements not noted in your RSVP, please contact the organisers.</p></div>
+      <div class="info-card"><span class="info-card-title">Presentations</span><p>Each presentation is <strong>15 minutes</strong>, followed by a 30-minute panel discussion at the end of each session. The chair will keep time. Please bring your own laptop if you wish to present with slides &mdash; most rooms have HDMI connections, but bring your own adapters. We recommend not relying on campus Wi-Fi for your presentation.</p></div>
       <div class="info-card"><span class="info-card-title">Wi-Fi</span><p>Eduroam is available for participants from member institutions. Campus guest Wi-Fi is available for all other attendees.</p></div>
       <div class="info-card"><span class="info-card-title">Accessibility</span><p>If you have any accessibility requirements or adjustment needs, please get in touch with the organisers. A campus accessibility map is available at <a href="https://www.gold.ac.uk/media/docs/about/Campus-Map-Accessibility.pdf" style="color:var(--blue);" target="_blank">gold.ac.uk</a>.</p></div>
-      <div class="info-card"><span class="info-card-title">Visa & Invitation Letters</span><p>If you are travelling from outside the UK, please remember to check visa requirements well in advance. If you require a formal invitation letter, please contact Ida at <a href="/cdn-cgi/l/email-protection#cda4a9a4bb8da4b9b8e3a9a6" style="color:var(--blue);"><span class="__cf_email__" data-cfemail="274e434e51674e535209434c">[email&#160;protected]</span></a> and allow sufficient processing time ahead of your visa appointment.</p></div>
+      <div class="info-card"><span class="info-card-title">Visa &amp; Invitation Letters</span><p>If you are travelling from outside the UK, please remember to check visa requirements well in advance. If you require a formal invitation letter, please contact Ida at <a href="mailto:idiv@itu.dk" style="color:var(--blue);">idiv@itu.dk</a> and allow sufficient processing time ahead of your visa appointment.</p></div>
     </section>
 
-
     <section id="forum">
-      <div class="section-head">
-        <span class="section-num">§ 04</span>
-        <h2>Forum</h2>
-      </div>
+      <div class="section-head"><span class="section-num">&sect; 05</span><h2>Forum</h2></div>
       <p>A space for participants to ask questions and share notes ahead of the symposium. All posts are visible to organisers and fellow attendees.</p>
-
       <div id="forum-posts">
         <div class="forum-post">
-          <div class="forum-post-header">
-            <div class="forum-author">From: <span>A Participant</span></div>
-            <div class="forum-ts">27 Jan 2026</div>
-          </div>
+          <div class="forum-post-header"><div class="forum-author">From: <span>A Participant</span></div><div class="forum-ts">27 Jan 2026</div></div>
           <div class="forum-body">It would be helpful to know the start and end times for both days so I can arrange rail travel. Is this information available yet?</div>
         </div>
         <div class="forum-post">
-          <div class="forum-post-header">
-            <div class="forum-author">From: <span>A Participant</span></div>
-            <div class="forum-ts">27 Jan 2026</div>
-          </div>
+          <div class="forum-post-header"><div class="forum-author">From: <span>A Participant</span></div><div class="forum-ts">27 Jan 2026</div></div>
           <div class="forum-body">Is it recommended to prepare a full paper for the presentation? And do you plan to develop a special issue based on the conference?</div>
         </div>
         <div class="forum-post">
-          <div class="forum-post-header">
-            <div class="forum-author">From: <span>Organisers</span></div>
-            <div class="forum-ts">22 Feb 2026</div>
-          </div>
-          <div class="forum-body">Thank you for your questions. A full paper is not required — a well-developed draft or detailed notes are sufficient for the presentation. On the special issue: yes, we are planning an edited volume or special issue following the symposium. Start and end times will be confirmed shortly.</div>
+          <div class="forum-post-header"><div class="forum-author">From: <span>Organisers</span></div><div class="forum-ts">22 Feb 2026</div></div>
+          <div class="forum-body">Thank you for your questions. A full paper is not required &mdash; a well-developed draft or detailed notes are sufficient. On the special issue: yes, we are planning an edited volume or special issue following the symposium. Start and end times are now confirmed &mdash; see the programme above.</div>
         </div>
       </div>
-
       <div class="forum-input-area">
-        <textarea id="forum-msg" placeholder="Post a question or note to organisers and fellow participants…"></textarea>
+        <textarea id="forum-msg" placeholder="Post a question or note to organisers and fellow participants&hellip;"></textarea>
         <div class="forum-input-footer">
           <input class="forum-name-input" id="forum-name" type="text" placeholder="Your name">
-          <button class="btn-post" onclick="postMessage()">Post →</button>
+          <button class="btn-post" onclick="postMessage()">Post &rarr;</button>
         </div>
       </div>
     </section>
 
-
-    <section id="speakers">
-      <div class="section-head">
-        <span class="section-num">§ 05</span>
-        <h2>Find Your Panel</h2>
-      </div>
-      <p>Use the search box to find your name, day, time, and room assignment.</p>
-      <input type="text" id="speaker-search" placeholder="Search by name..." oninput="filterSpeakers()" style="width:100%;padding:0.6rem 0.9rem;font-family:var(--sans);font-size:0.88rem;border:1px solid var(--rule);margin-bottom:1rem;outline:none;color:var(--ink);">
+    <section id="find-panel">
+      <div class="section-head"><span class="section-num">&sect; 06</span><h2>Find Your Panel</h2></div>
+      <p>Search your name to find your day, time, room and panel.</p>
+      <input type="text" id="speaker-search" placeholder="Search by name&hellip;" oninput="filterSpeakers()">
       <div style="overflow-x:auto;">
-      <table id="speaker-table" style="width:100%;border-collapse:collapse;font-size:0.83rem;">
-        <thead>
-          <tr style="background:var(--blue);color:#fff;">
-            <th style="padding:0.55rem 0.75rem;text-align:left;font-weight:600;">Speaker(s)</th>
-            <th style="padding:0.55rem 0.75rem;text-align:left;font-weight:600;white-space:nowrap;">Day</th>
-            <th style="padding:0.55rem 0.75rem;text-align:left;font-weight:600;white-space:nowrap;">Time</th>
-            <th style="padding:0.55rem 0.75rem;text-align:left;font-weight:600;white-space:nowrap;">Room</th>
-            <th style="padding:0.55rem 0.75rem;text-align:left;font-weight:600;">Panel</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Alexei Tsinovoi & Ask Greve</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 302</td>
-          <td>Digital Transformation II</td>
-        </tr>
-        <tr>
-          <td>Alexander Campolo</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy I</td>
-        </tr>
-        <tr>
-          <td>Anirban Mukhopadhyay</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents II</td>
-        </tr>
-        <tr>
-          <td>Anne Sofie Gammelgaard Gregersen</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents II</td>
-        </tr>
-        <tr>
-          <td>Anuradha Sajjanhar</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy I</td>
-        </tr>
-        <tr>
-          <td>Bastian Manteuffel</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics I</td>
-        </tr>
-        <tr>
-          <td>Becky Kazansky & Lina Dencik</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy I</td>
-        </tr>
-        <tr>
-          <td>Bidisha Chaudhuri & Sookthi Kav</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH 326</td>
-          <td>State & Private Entanglements</td>
-        </tr>
-        <tr>
-          <td>Boxi Wu</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics I</td>
-        </tr>
-        <tr>
-          <td>Camille Girard-Chanudet</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy II</td>
-        </tr>
-        <tr>
-          <td>Carina R. Nasser & Mattéo Bard</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Transformation III</td>
-        </tr>
-        <tr>
-          <td>Chiara Poletti</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy II</td>
-        </tr>
-        <tr>
-          <td>Clara Iglesias Keller & Julia Pohle</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH 326</td>
-          <td>State & Private Entanglements</td>
-        </tr>
-        <tr>
-          <td>Damiano Razzoli</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
-        </tr>
-        <tr>
-          <td>Dan McQuillan</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents I</td>
-        </tr>
-        <tr>
-          <td>David Moats</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy II</td>
-        </tr>
-        <tr>
-          <td>Dmitry Kuznetsov & Alex Gekker</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents I</td>
-        </tr>
-        <tr>
-          <td>Dr Nika Mahnic</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics II</td>
-        </tr>
-        <tr>
-          <td>Dr Paloma Viejo Otero & Dr Eugenia Siapera</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH 326</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
-        </tr>
-        <tr>
-          <td>Dominik Piétron</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH 326</td>
-          <td>State & Private Entanglements</td>
-        </tr>
-        <tr>
-          <td>Emilie Mørch Groth</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
-        </tr>
-        <tr>
-          <td>Eva Iris Otto, Sofie Flensburg & Signe Sophus Lai</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
-        </tr>
-        <tr>
-          <td>Frederik Schade</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice I</td>
-        </tr>
-        <tr>
-          <td>Freyja van den Boom</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy II</td>
-        </tr>
-        <tr>
-          <td>Gavin Duffy</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics I</td>
-        </tr>
-        <tr>
-          <td>Gianmarco Cristofari</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
-        </tr>
-        <tr>
-          <td>Gregory Asmolov</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents I</td>
-        </tr>
-        <tr>
-          <td>Gro Stueland Skorpen</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH 326</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
-        </tr>
-        <tr>
-          <td>Harsha Man Maharjan</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
-        </tr>
-        <tr>
-          <td>Ida Marie Iversen & Maja Hvarregaard Pedersen</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice I</td>
-        </tr>
-        <tr>
-          <td>James Rosenberg</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH 302</td>
-          <td>Citizens, Users & Citizenship II</td>
-        </tr>
-        <tr>
-          <td>Janine Patricia Santos</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice I</td>
-        </tr>
-        <tr>
-          <td>Jessamy Perriam</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 302</td>
-          <td>Digital Transformation II</td>
-        </tr>
-        <tr>
-          <td>Jess Brand</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 326</td>
-          <td>Digital Transformation I</td>
-        </tr>
-        <tr>
-          <td>Joao C. Magalhaes & Edemilson Parana</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice II</td>
-        </tr>
-        <tr>
-          <td>Julia Valeska Schröder</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics I</td>
-        </tr>
-        <tr>
-          <td>Karine Côté-Boucher & Mireille Paquet</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 302</td>
-          <td>Digital Transformation II</td>
-        </tr>
-        <tr>
-          <td>Keren Weitzberg, Margie Cheesman, Aaron Martin, Hanna Stoll & Isadora Dullaert</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 326</td>
-          <td>Citizens, Users & Citizenship I</td>
-        </tr>
-        <tr>
-          <td>Krystian Łukasik & Renata Włoch</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 326</td>
-          <td>Digital Transformation I</td>
-        </tr>
-        <tr>
-          <td>Lasse Uhrskov Kristensen</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
-        </tr>
-        <tr>
-          <td>Lianrui Jia & Ting Luo</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents II</td>
-        </tr>
-        <tr>
-          <td>Loup Cellard & Clément Marquet</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics II</td>
-        </tr>
-        <tr>
-          <td>Mait Kask, Andra Siibak & Maris Männiste</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Transformation III</td>
-        </tr>
-        <tr>
-          <td>Marguerite Borelli</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice II</td>
-        </tr>
-        <tr>
-          <td>Margarita Boenig-Liptsin</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Transformation III</td>
-        </tr>
-        <tr>
-          <td>Matilde Bro, Rebecca Adler-Nissen & Kristin Anabel Eggeling</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics II</td>
-        </tr>
-        <tr>
-          <td>Matt Spencer</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH 326</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
-        </tr>
-        <tr>
-          <td>Nathan Davies</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 326</td>
-          <td>Digital Transformation I</td>
-        </tr>
-        <tr>
-          <td>Oisín O'Brien</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 326</td>
-          <td>Citizens, Users & Citizenship I</td>
-        </tr>
-        <tr>
-          <td>Olessya Kirtchik</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 326</td>
-          <td>AI in the State, Expertise & Legitimacy I</td>
-        </tr>
-        <tr>
-          <td>Oscar Arruda d'Alva, Rodrigo Santaella-Gonçalves & Edemilson Paraná</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins III</td>
-        </tr>
-        <tr>
-          <td>Pedro Burity, Rafael Grohmann, Kenzo Soares Seto & Rafael De Toni</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH 326</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins II</td>
-        </tr>
-        <tr>
-          <td>Petter Falk</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 326</td>
-          <td>Digital Transformation I</td>
-        </tr>
-        <tr>
-          <td>Rachel Humphris & Nika Mahnič</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 326</td>
-          <td>Citizens, Users & Citizenship I</td>
-        </tr>
-        <tr>
-          <td>Roei Davidson</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents I</td>
-        </tr>
-        <tr>
-          <td>Roger Burrows & Nicholas Gane</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice I</td>
-        </tr>
-        <tr>
-          <td>Roser Pujads & Daniel Curto-Millet</td>
-          <td>Thu 16 Apr</td>
-          <td>14:20–15:50</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty: Alternatives & Lock-ins I</td>
-        </tr>
-        <tr>
-          <td>Ruth Garland</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH LG01</td>
-          <td>Authoritarian Currents II</td>
-        </tr>
-        <tr>
-          <td>Sacha Robehmed</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH LG01</td>
-          <td>Infrastructural Power & Politics II</td>
-        </tr>
-        <tr>
-          <td>Samuele Fratini</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice II</td>
-        </tr>
-        <tr>
-          <td>Sandeep Mertia</td>
-          <td>Thu 16 Apr</td>
-          <td>11:30–13:00</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice I</td>
-        </tr>
-        <tr>
-          <td>Sérgio Barbosa</td>
-          <td>Thu 16 Apr</td>
-          <td>16:10–17:20</td>
-          <td>PSH 302</td>
-          <td>Digital Sovereignty in Theory & Practice II</td>
-        </tr>
-        <tr>
-          <td>Siddharth de Souza, Emrys Schoemaker & Thomas Kirk</td>
-          <td>Fri 17 Apr</td>
-          <td>14:00–15:40</td>
-          <td>PSH 326</td>
-          <td>State & Private Entanglements</td>
-        </tr>
-        <tr>
-          <td>Sruthi Vanguri</td>
-          <td>Fri 17 Apr</td>
-          <td>11:10–12:40</td>
-          <td>PSH LG01</td>
-          <td>Digital Transformation III</td>
-        </tr>
-        <tr>
-          <td>Torjus Solheim Eckhoff</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 302</td>
-          <td>Digital Transformation II</td>
-        </tr>
-        <tr>
-          <td>Zhou Pei</td>
-          <td>Fri 17 Apr</td>
-          <td>09:30–11:00</td>
-          <td>PSH 326</td>
-          <td>Citizens, Users & Citizenship I</td>
-        </tr>
-        </tbody>
-      </table>
+        <table id="speaker-table">
+          <thead><tr><th>Speaker(s)</th><th>Day</th><th>Time</th><th>Room</th><th>Panel</th></tr></thead>
+          <tbody>
+        <tr><td>Ask Greve (TBC)</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 302</td><td>TBD — Ask Greve & others</td></tr>
+        <tr><td>Clara Iglesias Keller & Julia Pohle</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 326</td><td>State & Private Entanglements</td></tr>
+        <tr><td>Gregory Asmolov</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH LG01</td><td>Authoritarian Currents I</td></tr>
+        <tr><td>Sérgio Barbosa</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice II</td></tr>
+        <tr><td>Carina R. Nasser & Mattéo Bard</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH LG01</td><td>Digital Transformation III</td></tr>
+        <tr><td>Margarita Boenig-Liptsin</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH LG01</td><td>Digital Transformation III</td></tr>
+        <tr><td>Freyja van den Boom</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy II</td></tr>
+        <tr><td>Marguerite Borelli</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice II</td></tr>
+        <tr><td>Jess Brand</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 326</td><td>Digital Transformation I</td></tr>
+        <tr><td>Alexander Campolo</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy I</td></tr>
+        <tr><td>Gianmarco Cristofari</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 302</td><td>Digital Sovereignty: Alternatives & Lock-ins I</td></tr>
+        <tr><td>Roei Davidson</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH LG01</td><td>Authoritarian Currents I</td></tr>
+        <tr><td>Nathan Davies</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 326</td><td>Digital Transformation I</td></tr>
+        <tr><td>Becky Kazansky & Lina Dencik</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy I</td></tr>
+        <tr><td>Gavin Duffy</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics I</td></tr>
+        <tr><td>Keren Weitzberg, Margie Cheesman, Aaron Martin, Hanna Stoll & Isadora Dullaert</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 326</td><td>Citizens, Users & Citizenship I</td></tr>
+        <tr><td>Torjus Solheim Eckhoff</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 302</td><td>Digital Transformation II</td></tr>
+        <tr><td>Matilde Bro, Rebecca Adler-Nissen & Kristin Anabel Eggeling</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics II</td></tr>
+        <tr><td>Petter Falk</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 326</td><td>Digital Transformation I</td></tr>
+        <tr><td>Samuele Fratini</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice II</td></tr>
+        <tr><td>Ruth Garland</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH LG01</td><td>Authoritarian Currents II</td></tr>
+        <tr><td>Camille Girard-Chanudet</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy II</td></tr>
+        <tr><td>Anne Sofie Gammelgaard Gregersen</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH LG01</td><td>Authoritarian Currents II</td></tr>
+        <tr><td>Emilie Mørch Groth</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 302</td><td>Digital Sovereignty: Alternatives & Lock-ins I</td></tr>
+        <tr><td>Bidisha Chaudhuri & Sookthi Kav</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 326</td><td>State & Private Entanglements</td></tr>
+        <tr><td>Siddharth de Souza, Emrys Schoemaker & Thomas Kirk</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 326</td><td>State & Private Entanglements</td></tr>
+        <tr><td>Olessya Kirtchik</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy I</td></tr>
+        <tr><td>Lasse Uhrskov Kristensen</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 302</td><td>Digital Sovereignty: Alternatives & Lock-ins I</td></tr>
+        <tr><td>Eva Iris Otto, Sofie Flensburg & Signe Sophus Lai</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH LG01</td><td>Digital Sovereignty: Alternatives & Lock-ins III</td></tr>
+        <tr><td>Lianrui Jia & Ting Luo</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH LG01</td><td>Authoritarian Currents II</td></tr>
+        <tr><td>Harsha Man Maharjan</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH LG01</td><td>Digital Sovereignty: Alternatives & Lock-ins III</td></tr>
+        <tr><td>Bastian Manteuffel</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics I</td></tr>
+        <tr><td>Loup Cellard & Clément Marquet</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics II</td></tr>
+        <tr><td>Dan McQuillan</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH LG01</td><td>Authoritarian Currents I</td></tr>
+        <tr><td>Sandeep Mertia</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice I</td></tr>
+        <tr><td>David Moats</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy II</td></tr>
+        <tr><td>Anirban Mukhopadhyay</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH LG01</td><td>Authoritarian Currents II</td></tr>
+        <tr><td>Mait Kask, Andra Siibak & Maris Männiste</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH LG01</td><td>Digital Transformation III</td></tr>
+        <tr><td>Oisín O'Brien</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 326</td><td>Citizens, Users & Citizenship I</td></tr>
+        <tr><td>Karine Côté-Boucher & Mireille Paquet</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 302</td><td>Digital Transformation II</td></tr>
+        <tr><td>Joao C. Magalhaes & Edemilson Parana</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice II</td></tr>
+        <tr><td>Oscar Arruda d'Alva, Rodrigo Santaella-Gonçalves & Edemilson Paraná</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH LG01</td><td>Digital Sovereignty: Alternatives & Lock-ins III</td></tr>
+        <tr><td>Ida Marie Iversen & Maja Hvarregaard Pedersen</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 302</td><td>Citizens, Users & Citizenship II</td></tr>
+        <tr><td>Zhou Pei</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 326</td><td>Citizens, Users & Citizenship I</td></tr>
+        <tr><td>Jessamy Perriam</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 302</td><td>Digital Transformation II</td></tr>
+        <tr><td>Dominik Piétron</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 326</td><td>State & Private Entanglements</td></tr>
+        <tr><td>Chiara Poletti</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy II</td></tr>
+        <tr><td>Damiano Razzoli & Nicola Casucci</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH LG01</td><td>Digital Sovereignty: Alternatives & Lock-ins III</td></tr>
+        <tr><td>Sacha Robehmed</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics II</td></tr>
+        <tr><td>James Rosenberg</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 302</td><td>Citizens, Users & Citizenship II</td></tr>
+        <tr><td>Anuradha Sajjanhar</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy I</td></tr>
+        <tr><td>Janine Patricia Santos</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice I</td></tr>
+        <tr><td>Frederik Schade</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice I</td></tr>
+        <tr><td>Julia Valeska Schröder</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics I</td></tr>
+        <tr><td>Dr Paloma Viejo Otero, Dr Eugenia Siapera & Professor Dr. Elizabeth Farries</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 326</td><td>Digital Sovereignty: Alternatives & Lock-ins II</td></tr>
+        <tr><td>Gro Stueland Skorpen</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 326</td><td>Digital Sovereignty: Alternatives & Lock-ins II</td></tr>
+        <tr><td>Matt Spencer</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 326</td><td>Digital Sovereignty: Alternatives & Lock-ins II</td></tr>
+        <tr><td>Pedro Burity, Rafael Grohmann, Kenzo Soares Seto & Rafael De Toni</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 326</td><td>Digital Sovereignty: Alternatives & Lock-ins II</td></tr>
+        <tr><td>Alexei Tsinovoi</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 302</td><td>Digital Transformation II</td></tr>
+        <tr><td>Sruthi Vanguri</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH LG01</td><td>Digital Transformation III</td></tr>
+        <tr><td>Boxi Wu</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics I</td></tr>
+        <tr><td>Krystian Łukasik & Renata Włoch</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 326</td><td>Digital Transformation I</td></tr>
+        <tr><td>Roger Burrows & Nicholas Gane</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice I</td></tr>
+        <tr><td>Dmitry Kuznetsov, Alex Gekker & Dan M. Kotliar</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH LG01</td><td>Authoritarian Currents I</td></tr>
+        <tr><td>Roser Pujads & Daniel Curto-Millet</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 302</td><td>Digital Sovereignty: Alternatives & Lock-ins I</td></tr>
+        <tr><td>Dr Nika Mahnic</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics II</td></tr>
+        <tr><td>Rachel Humphris & Nika Mahnič</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 326</td><td>Citizens, Users & Citizenship I</td></tr>
+          </tbody>
+        </table>
       </div>
-      <script>
-        // Style table rows
-        document.querySelectorAll('#speaker-table tbody tr').forEach((tr, i) => {
-          tr.style.background = i % 2 === 0 ? '#f7f9ff' : '#ffffff';
-          tr.querySelectorAll('td').forEach(td => {
-            td.style.padding = '0.45rem 0.75rem';
-            td.style.borderBottom = '1px solid var(--rule)';
-            td.style.verticalAlign = 'top';
-            td.style.lineHeight = '1.45';
-          });
-        });
-        function filterSpeakers() {
-          const q = document.getElementById('speaker-search').value.toLowerCase();
-          document.querySelectorAll('#speaker-table tbody tr').forEach(tr => {
-            tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
-          });
-        }
-      </script>
     </section>
+
   </main>
 
   <aside class="side-col">
-      <div class="side-block">
-        <span class="side-title">Keynote Speakers</span>
-        <button class="keynote-card" onclick="openModal('rikap')">
-          <div class="keynote-name">Dr Cecilia Rikap</div>
-          <div class="keynote-role">Session One</div>
-          <div class="keynote-hint">Read abstract →</div>
-        </button>
-        <button class="keynote-card" onclick="openModal('gerbaudo')">
-          <div class="keynote-name">Dr Paolo Gerbaudo</div>
-          <div class="keynote-role">Session One</div>
-          <div class="keynote-hint">Read abstract →</div>
-        </button>
-        <button class="keynote-card" onclick="openModal('dencik')">
-          <div class="keynote-name">Lina Dencik</div>
-          <div class="keynote-role">Session One — Respondent</div>
-          <div class="keynote-hint">Read abstract →</div>
-        </button>
-        <button class="keynote-card" onclick="openModal('nguyen')">
-          <div class="keynote-name">Dang Nguyen</div>
-          <div class="keynote-role">Session Two</div>
-          <div class="keynote-hint">Read abstract →</div>
-        </button>
-        <button class="keynote-card" onclick="openModal('mckelvey')">
-          <div class="keynote-name">Fenwick McKelvey</div>
-          <div class="keynote-role">Session Two</div>
-          <div class="keynote-hint">Read abstract →</div>
-        </button>
-        <button class="keynote-card" onclick="openModal('gehl')">
-          <div class="keynote-name">Rob W. Gehl</div>
-          <div class="keynote-role">Session Two — Respondent</div>
-          <div class="keynote-hint">Read abstract →</div>
-        </button>
-      </div>
+    <div class="side-block">
+      <span class="side-title">Keynote Speakers</span>
+      <button class="keynote-card" onclick="openModal('rikap')"><div class="keynote-name">Dr Cecilia Rikap</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+      <button class="keynote-card" onclick="openModal('gerbaudo')"><div class="keynote-name">Dr Paolo Gerbaudo</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+      <button class="keynote-card" onclick="openModal('dencik')"><div class="keynote-name">Lina Dencik</div><div class="keynote-role">Session One &mdash; Respondent</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+      <button class="keynote-card" onclick="openModal('nguyen')"><div class="keynote-name">Dang Nguyen</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+      <button class="keynote-card" onclick="openModal('mckelvey')"><div class="keynote-name">Fenwick McKelvey</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
+      <button class="keynote-card" onclick="openModal('gehl')"><div class="keynote-name">Rob W. Gehl</div><div class="keynote-role">Session Two &mdash; Respondent</div><div class="keynote-hint">Read abstract &rarr;</div></button>
     </div>
-
     <div class="side-block">
       <span class="side-title">Contact</span>
       <p style="font-family:var(--sans);font-size:0.82rem;font-weight:300;margin-bottom:0.75rem;">For questions about programme, visa letters, or practical arrangements:</p>
-      <a class="contact-link" href="/cdn-cgi/l/email-protection#1977376d72787a63597e76757d37787a376c72"><span class="__cf_email__" data-cfemail="abc585dfc0cac8d1ebccc4c7cf85cac885dec0">[email&#160;protected]</span></a>
-      <a class="contact-link" href="/cdn-cgi/l/email-protection#88e1faf8e9c8e1fcfda6ece3"><span class="__cf_email__" data-cfemail="462f343627062f323368222d">[email&#160;protected]</span></a>
+      <a class="contact-link" href="mailto:irina.papazu@itu.dk">irina.papazu@itu.dk</a>
+      <a class="contact-link" href="mailto:idiv@itu.dk">idiv@itu.dk</a>
     </div>
-
     <div class="side-block">
       <span class="side-title">Hosted by</span>
       <p style="font-family:var(--sans);font-size:0.82rem;font-weight:300;margin:0;line-height:1.6;">The DIGI-FRONT Project, in partnership with Goldsmiths, University of London.</p>
@@ -1159,43 +378,11 @@
 </div>
 
 <footer>
-  <p>Statecraft, Sovereignty & Digital Government Symposium — April 2026</p>
-  <p>DIGI-FRONT Project · Goldsmiths, University of London</p>
+  <p>Statecraft, Sovereignty &amp; Digital Government Symposium &mdash; April 2026</p>
+  <p>DIGI-FRONT Project &middot; Goldsmiths, University of London</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function postMessage() {
-    const msg = document.getElementById('forum-msg').value.trim();
-    const name = document.getElementById('forum-name').value.trim() || 'Anonymous';
-    if (!msg) return;
-    const now = new Date();
-    const dateStr = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-    const post = document.createElement('div');
-    post.className = 'forum-post';
-    post.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease';
-    post.innerHTML = `<div class="forum-post-header"`;
-    document.getElementById('forum-posts').appendChild(post);
-    setTimeout(() => { post.style.opacity = '1'; post.style.transform = 'none'; }, 10);
-    document.getElementById('forum-msg').value = '';
-    document.getElementById('forum-name').value = '';
-  }
-  document.querySelectorAll('#speaker-table tbody tr').forEach((tr, i) => {
-    tr.style.background = i % 2 === 0 ? '#f7f9ff' : '#ffffff';
-    tr.querySelectorAll('td').forEach(td => {
-      td.style.padding = '0.45rem 0.75rem';
-      td.style.borderBottom = '1px solid var(--rule)';
-      td.style.verticalAlign = 'top';
-      td.style.lineHeight = '1.45';
-    });
-  });
-  function filterSpeakers() {
-    const q = document.getElementById('speaker-search').value.toLowerCase();
-    document.querySelectorAll('#speaker-table tbody tr').forEach(tr => {
-      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
-    });
-  }
-</script>
-
+<!-- MODALS -->
 <div class="modal-overlay" id="modal-rikap" onclick="if(event.target===this)closeModal('rikap')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('rikap')">&#x2715; Close</button>
@@ -1203,9 +390,9 @@
     <div class="modal-name">Dr Cecilia Rikap</div>
     <div class="modal-title">Digital sovereignty crossroads</div>
     <div class="modal-body">
-      <p>The presence of Big Tech leaders in the front row at Trump's inauguration signals a ruling coalition capable of controlling nearly every organization and nation that becomes reliant on their AI and other digital technologies. This alliance between corporate and state superpowers is strategically positioned to exert global dominance by controlling the social production of information and knowledge in all its forms.</p>
+      <p>The presence of Big Tech leaders in the front row at Trump&rsquo;s inauguration signals a ruling coalition capable of controlling nearly every organization and nation that becomes reliant on their AI and other digital technologies. This alliance between corporate and state superpowers is strategically positioned to exert global dominance &mdash; with the exception of a few decoupled spaces, notably China &mdash; by controlling the social production of information and knowledge in all its forms, from narrative-building in social media to advanced AI technologies for warfare and surveillance.</p>
       <p>In Europe, responses have differed. In the United Kingdom, the tech deal signed with the US signals that the UK government is prioritizing the promise of digital-driven economic growth at the expense of sovereignty. The case of the European Union is equally crossed by the same trade-offs.</p>
-      <p>This presentation explores how the UK and the EU are responding to pressures from the US government and US Big Tech, considering trade-offs between AI's potential for economic growth, geopolitical alliances, digital technologies' socio-ecological footprint, Big Tech's control of the AI value chain, and digital sovereignty.</p>
+      <p>This presentation explores how the UK and the EU are responding to pressures from the US government and US Big Tech, considering trade-offs between: AI&rsquo;s potential for economic growth, historical geopolitical alliances and rivalries, digital technologies&rsquo; socio-ecological footprint, Big Tech&rsquo;s control of the AI value chain, and digital sovereignty.</p>
     </div>
   </div>
 </div>
@@ -1217,9 +404,9 @@
     <div class="modal-name">Dr Paolo Gerbaudo</div>
     <div class="modal-title">Self-Deport Apps: The Pervasive Control of the Platform State and the New Digital Imperialism</div>
     <div class="modal-body">
-      <p>This presentation challenges the popular idea that in the digital age the state is weakening in favour of multinational corporations, arguing instead that platformization leads to a profound reinvigoration of state power, particularly for states such as the US that have control over their own technological ecosystem.</p>
-      <p>As governments embed reprogrammable data infrastructures into their core institutions, they gain new capacities for algorithmic legibility and behavioral steerability. This shift enables a pervasive yet often invisible statecraft, where the state re-integrates governance functions.</p>
-      <p>Drawing examples from Palantir and the use of AI by ICE, the presentation explores the implications of this emerging paradigm for the future of power, citizenship, and our understanding of the nature of the state in the digital era.</p>
+      <p>This presentation challenges the popular idea that in the digital age the state is weakening in favour of multinational corporations, arguing instead that platformization leads to a profound reinvigoration of state power, particularly for those states such as the US that have control over their own technological ecosystem.</p>
+      <p>As governments embed reprogrammable data infrastructures into their core institutions, they gain new capacities for algorithmic legibility and behavioral steerability. This mode of control intermixes elements of governmentality and more coercive logics of the state, enabling a pervasive yet often invisible statecraft where the state re-integrates governance functions.</p>
+      <p>Drawing examples from Palantir and the use of artificial intelligence by ICE, the presentation explores the implications of this emerging paradigm for the future of power, citizenship, and our understanding of the nature of the state in the digital era.</p>
     </div>
   </div>
 </div>
@@ -1242,8 +429,8 @@
     <div class="modal-title">Statecraft, Sovereignty and Digital Government as Gendered Projects</div>
     <div class="modal-body">
       <p>Statecraft, Sovereignty and Digital Government are intensely gendered projects, organised around masculinised fantasies of command, foresight, and control that are materially embedded in technical systems and administrative routines.</p>
-      <p>Digital governance does not simply modernise the state &mdash; it hardens particular sovereign dispositions by automating judgement, distancing responsibility, and reconfiguring care as compliance.</p>
-      <p>This paper contends that contemporary digital statecraft consolidates sovereignty while disavowing the violence and exclusions it produces, and considers how attention to gender unsettles the apparent coherence of digital sovereignty.</p>
+      <p>Digital governance does not simply modernise the state &mdash; it hardens particular sovereign dispositions by automating judgement, distancing responsibility, and reconfiguring care as compliance. Gender makes visible how authority is performed and protected in these systems, especially through claims of neutrality, efficiency, and inevitability.</p>
+      <p>This paper contends that contemporary digital statecraft functions as a technology of power that consolidates sovereignty while disavowing the violence and exclusions it produces. The paper closes by considering how attention to gender unsettles the apparent coherence of digital sovereignty, opening it to critique, friction, and re-composition.</p>
     </div>
   </div>
 </div>
@@ -1289,6 +476,27 @@
       document.body.style.overflow = '';
     }
   });
+  function postMessage() {
+    var msg = document.getElementById('forum-msg').value.trim();
+    var name = document.getElementById('forum-name').value.trim() || 'Anonymous';
+    if (!msg) return;
+    var now = new Date();
+    var dateStr = now.toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'});
+    var post = document.createElement('div');
+    post.className = 'forum-post';
+    post.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s';
+    post.innerHTML = '<div class="forum-post-header"><div class="forum-author">From: <span>' + name + '</span></div><div class="forum-ts">' + dateStr + '</div></div><div class="forum-body">' + msg + '</div>';
+    document.getElementById('forum-posts').appendChild(post);
+    setTimeout(function(){post.style.opacity='1';post.style.transform='none';},10);
+    document.getElementById('forum-msg').value='';
+    document.getElementById('forum-name').value='';
+  }
+  function filterSpeakers() {
+    var q = document.getElementById('speaker-search').value.toLowerCase();
+    document.querySelectorAll('#speaker-table tbody tr').forEach(function(tr) {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
 </script>
 
 </body>
