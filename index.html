@@ -414,4 +414,17 @@
     post.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s';
     post.innerHTML = '<div class="forum-post-header"><div class="forum-author">From: <span>' + name + '</span></div><div class="forum-ts">' + dateStr + '</div></div><div class="forum-body">' + msg + '</div>';
     document.getElementById('forum-posts').appendChild(post);
-    setTimeout
+    setTimeout(function(){post.style.opacity='1';post.style.transform='none';},10);
+    document.getElementById('forum-msg').value='';
+    document.getElementById('forum-name').value='';
+  }
+  function filterSpeakers() {
+    var q = document.getElementById('speaker-search').value.toLowerCase();
+    document.querySelectorAll('#speaker-table tbody tr').forEach(function(tr) {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
