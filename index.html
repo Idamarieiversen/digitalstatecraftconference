@@ -16,22 +16,17 @@
     --rule: #e0e0e0;
     --surface: #f7f9ff;
     --serif: 'Libre Baskerville', Georgia, serif;
-    --body: 'IBM Plex Sans', sans-serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
     --mono: 'IBM Plex Mono', monospace;
-    --sans: system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #fff; color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; font-size: 1rem; }
-
-  /* NAV */
   nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; padding: 0 3rem; height: 52px; }
   .nav-brand { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.15s; }
   .nav-links a:hover { color: var(--blue); }
-
-  /* HERO */
-  .hero { padding: 5rem 3rem 4rem; max-width: 860px; border-bottom: 1px solid var(--rule); opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; margin: 0 auto; text-align: center; }
+  .hero { padding: 5rem 3rem 4rem; max-width: 860px; border-bottom: 1px solid var(--rule); margin: 0 auto; text-align: center; }
   .hero-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
   h1 { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.5rem; color: var(--ink); }
   h1 em { color: var(--blue); font-style: italic; }
@@ -40,31 +35,17 @@
   .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
   .meta-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .meta-value { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
-
-  /* LAYOUT */
   .content-grid { display: grid; grid-template-columns: 1fr 280px; max-width: 1080px; margin: 0 auto; }
   .main-col { border-right: 1px solid var(--rule); padding: 3rem; }
   .side-col { padding: 3rem 2rem; }
-
-  section { margin-bottom: 4rem; opacity: 0; animation: fadeUp 0.6s ease forwards; }
-  section:nth-child(1) { animation-delay: 0.2s; }
-  section:nth-child(2) { animation-delay: 0.3s; }
-  section:nth-child(3) { animation-delay: 0.4s; }
-  section:nth-child(4) { animation-delay: 0.5s; }
-  section:nth-child(5) { animation-delay: 0.6s; }
-
+  section { margin-bottom: 4rem; }
   .section-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }
   .section-num { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); }
   h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--ink); }
   h3 { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 1rem; }
   p { margin-bottom: 1rem; font-size: 0.92rem; }
-
-  /* TOPICS GRID */
   .topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 1rem; }
-  .topic-item { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; padding: 0.5rem 0.75rem; border: 1px solid var(--rule); color: var(--ink); transition: border-color 0.15s, background 0.15s; }
-  .topic-item:hover { border-color: var(--accent); background: #eef4fb; }
-
-  /* PROGRAMME */
+  .topic-item { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; padding: 0.5rem 0.75rem; border: 1px solid var(--rule); color: var(--ink); }
   .day-block { margin-bottom: 2.5rem; }
   .day-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--blue); }
   .session { display: flex; gap: 1.5rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
@@ -72,14 +53,10 @@
   .session-time { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); min-width: 52px; padding-top: 0.15rem; }
   .session-title { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
   .session-sub { font-size: 0.77rem; font-weight: 300; color: var(--muted); margin-top: 0.1rem; }
-
-  /* PRACTICAL INFO */
   .info-card { border: 1px solid var(--rule); padding: 1rem 1.2rem; margin-bottom: 0.75rem; }
   .info-card-title { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.5rem; }
   .info-card p { font-size: 0.83rem; font-weight: 300; margin: 0; color: #333; }
   .info-card p + p { margin-top: 0.4rem; }
-
-  /* FORUM */
   .forum-post { border: 1px solid var(--rule); margin-bottom: 0.75rem; }
   .forum-post-header { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 1rem; background: var(--surface); border-bottom: 1px solid var(--rule); }
   .forum-author { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
@@ -90,23 +67,17 @@
   .forum-input-area textarea { width: 100%; padding: 0.75rem 1rem; font-family: var(--sans); font-size: 0.83rem; font-weight: 300; border: none; resize: vertical; min-height: 80px; outline: none; }
   .forum-input-footer { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; border-top: 1px solid var(--rule); background: var(--surface); }
   .forum-name-input { font-family: var(--mono); font-size: 0.65rem; border: none; background: none; outline: none; color: var(--ink); }
-  .btn-post { font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--blue); color: #fff; border: none; padding: 0.5rem 1.2rem; cursor: pointer; transition: background 0.15s; }
+  .btn-post { font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--blue); color: #fff; border: none; padding: 0.5rem 1.2rem; cursor: pointer; }
   .btn-post:hover { background: var(--accent); }
-
-  /* SIDEBAR */
   .side-block { margin-bottom: 2.5rem; }
   .side-title { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
   .contact-link { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--blue); text-decoration: none; margin-bottom: 0.4rem; }
   .contact-link:hover { color: var(--accent); }
-
-  /* KEYNOTE CARDS */
-  .keynote-card { border: 1px solid var(--rule); padding: 0.9rem 1rem; margin-bottom: 0.6rem; cursor: pointer; transition: background 0.15s, border-color 0.15s; display: block; width: 100%; background: #fff; text-align: left; font-family: var(--sans); }
+  .keynote-card { border: 1px solid var(--rule); padding: 0.9rem 1rem; margin-bottom: 0.6rem; cursor: pointer; display: block; width: 100%; background: #fff; text-align: left; font-family: var(--sans); transition: background 0.15s, border-color 0.15s; }
   .keynote-card:hover { background: var(--surface); border-color: var(--blue); }
   .keynote-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
   .keynote-role { font-size: 0.75rem; font-weight: 300; color: var(--muted); margin-top: 0.15rem; }
-  .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; letter-spacing: 0.05em; }
-
-  /* MODALS */
+  .keynote-hint { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); margin-top: 0.35rem; }
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem; }
   .modal-overlay.active { display: flex; }
   .modal-box { background: #fff; max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 2rem 2.2rem; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
@@ -117,21 +88,14 @@
   .modal-body p { margin-bottom: 0.9rem; }
   .modal-close { position: absolute; top: 1rem; right: 1.2rem; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem; }
   .modal-close:hover { color: var(--ink); }
-
-  /* SPEAKER TABLE */
   #speaker-search { width: 100%; padding: 0.6rem 0.9rem; font-family: var(--sans); font-size: 0.88rem; border: 1px solid var(--rule); margin-bottom: 1rem; outline: none; color: var(--ink); }
   #speaker-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
   #speaker-table thead tr { background: var(--blue); color: #fff; }
   #speaker-table thead th { padding: 0.55rem 0.75rem; text-align: left; font-weight: 600; font-family: var(--sans); }
   #speaker-table tbody tr:nth-child(even) { background: #f7f9ff; }
   #speaker-table tbody td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.45; }
-
-  /* FOOTER */
   footer { border-top: 1px solid var(--rule); padding: 2rem 3rem; text-align: center; }
   footer p { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--muted); margin: 0.2rem 0; }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-
   @media (max-width: 768px) {
     nav { padding: 0 1.5rem; }
     .nav-links { gap: 1rem; }
@@ -196,38 +160,34 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
         <button class="keynote-card" onclick="openModal('rikap')"><div class="keynote-name">Cecilia Rikap</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
         <button class="keynote-card" onclick="openModal('gerbaudo')"><div class="keynote-name">Paolo Gerbaudo</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
-        
         <button class="keynote-card" onclick="openModal('nguyen')"><div class="keynote-name">Dang Nguyen</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
         <button class="keynote-card" onclick="openModal('mckelvey')"><div class="keynote-name">Fenwick McKelvey</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
-        
       </div>
     </section>
 
     <section id="programme">
       <div class="section-head"><span class="section-num">&sect; 03</span><h2>Programme</h2></div>
-      <p>Each presentation is <strong>15 minutes</strong> followed by a 30-minute panel discussion. The chair will keep time. See <a href="#find-panel" style="color:var(--blue)">Find Your Panel</a> below to find your room and time slot.</p>
-
+      <p>Each presentation is <strong>15 minutes</strong> followed by a 30-minute panel discussion. The chair will keep time. See <a href="#find-panel" style="color:var(--blue)">Find Your Panel</a> below for your room and time slot.</p>
       <div class="day-block">
         <div class="day-label">Thursday, 16 April</div>
         <div class="session break"><div class="session-time">09:00</div><div class="session-info"><div class="session-title">Registration &amp; Coffee</div></div></div>
-        <div class="session"><div class="session-time">09:30</div><div class="session-info"><div class="session-title">Opening Remarks</div><div class="session-sub">Welcome by the organising committee</div></div></div>
+        <div class="session"><div class="session-time">09:30</div><div class="session-info"><div class="session-title">Opening Remarks</div></div></div>
         <div class="session"><div class="session-time">09:50</div><div class="session-info"><div class="session-title">Keynote Session One</div><div class="session-sub">Cecilia Rikap &amp; Paolo Gerbaudo &mdash; respondent: Lina Dencik</div></div></div>
-        <div class="session"><div class="session-time">11:30</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Morning <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics I</div><div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy I</div><div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice I</div></div></div>
+        <div class="session"><div class="session-time">11:30</div><div class="session-info"><div class="session-title">Paper Presentations</div><div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics I</div><div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy I</div><div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice I</div></div></div>
         <div class="session break"><div class="session-time">13:00</div><div class="session-info"><div class="session-title">Lunch</div></div></div>
-        <div class="session"><div class="session-time">14:20</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Afternoon I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Authoritarian Currents I</div><div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy II</div><div class="session-sub">PSH 302: Digital Sovereignty: Alternatives &amp; Lock-ins I</div></div></div>
+        <div class="session"><div class="session-time">14:20</div><div class="session-info"><div class="session-title">Paper Presentations</div><div class="session-sub">PSH LG01: Authoritarian Currents I</div><div class="session-sub">PSH 326: AI in the State, Expertise &amp; Legitimacy II</div><div class="session-sub">PSH 302: Digital Sovereignty: Alternatives &amp; Lock-ins I</div></div></div>
         <div class="session break"><div class="session-time">15:50</div><div class="session-info"><div class="session-title">Coffee Break</div></div></div>
-        <div class="session"><div class="session-time">16:10</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Afternoon II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Authoritarian Currents II</div><div class="session-sub">PSH 326: Digital Transformation I</div><div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice II</div></div></div>
+        <div class="session"><div class="session-time">16:10</div><div class="session-info"><div class="session-title">Paper Presentations</div><div class="session-sub">PSH LG01: Authoritarian Currents II</div><div class="session-sub">PSH 326: Digital Transformation I</div><div class="session-sub">PSH 302: Digital Sovereignty in Theory &amp; Practice II</div></div></div>
         <div class="session break"><div class="session-time">17:40</div><div class="session-info"><div class="session-title">Drinks at The Rose</div><div class="session-sub">The Rose Pub, directly opposite New Cross Gate Station</div></div></div>
       </div>
-
       <div class="day-block">
         <div class="day-label">Friday, 17 April</div>
         <div class="session"><div class="session-time">09:30</div><div class="session-info"><div class="session-title">Keynote Session Two</div><div class="session-sub">Dang Nguyen &amp; Fenwick McKelvey &mdash; respondent: Rob W. Gehl</div></div></div>
-        <div class="session"><div class="session-time">~10:30</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Morning I <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics II</div><div class="session-sub">PSH 326: Citizens, Users &amp; Citizenship I</div><div class="session-sub">PSH 302: Digital Transformation II</div></div></div>
+        <div class="session"><div class="session-time">~10:30</div><div class="session-info"><div class="session-title">Paper Presentations</div><div class="session-sub">PSH LG01: Infrastructural Power &amp; Politics II</div><div class="session-sub">PSH 326: Citizens, Users &amp; Citizenship I</div><div class="session-sub">PSH 302: Digital Transformation II</div></div></div>
         <div class="session break"><div class="session-time">11:00</div><div class="session-info"><div class="session-title">Break</div></div></div>
-        <div class="session"><div class="session-time">11:10</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Morning II <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Digital Transformation III</div><div class="session-sub">PSH 326: Digital Sovereignty: Alternatives &amp; Lock-ins II</div><div class="session-sub">PSH 302: Citizens, Users &amp; Citizenship II</div></div></div>
+        <div class="session"><div class="session-time">11:10</div><div class="session-info"><div class="session-title">Paper Presentations</div><div class="session-sub">PSH LG01: Digital Transformation III</div><div class="session-sub">PSH 326: Digital Sovereignty: Alternatives &amp; Lock-ins II</div><div class="session-sub">PSH 302: Citizens, Users &amp; Citizenship II</div></div></div>
         <div class="session break"><div class="session-time">12:40</div><div class="session-info"><div class="session-title">Lunch</div></div></div>
-        <div class="session"><div class="session-time">14:00</div><div class="session-info"><div class="session-title">Paper Presentations &mdash; Afternoon <span style="font-size:0.75rem;font-weight:300;color:var(--muted)">(4 &times; 15 min)</span></div><div class="session-sub">PSH LG01: Digital Sovereignty: Alternatives &amp; Lock-ins III</div><div class="session-sub">PSH 326: State &amp; Private Entanglements</div></div></div>
+        <div class="session"><div class="session-time">14:00</div><div class="session-info"><div class="session-title">Paper Presentations</div><div class="session-sub">PSH LG01: Digital Sovereignty: Alternatives &amp; Lock-ins III</div><div class="session-sub">PSH 326: State &amp; Private Entanglements</div></div></div>
         <div class="session break"><div class="session-time">15:40</div><div class="session-info"><div class="session-title">Break</div></div></div>
         <div class="session"><div class="session-time">16:00</div><div class="session-info"><div class="session-title">Final Keynotes &amp; Roundtable</div></div></div>
         <div class="session break"><div class="session-time">17:30</div><div class="session-info"><div class="session-title">Close of Symposium</div></div></div>
@@ -237,31 +197,22 @@
     <section id="practical">
       <div class="section-head"><span class="section-num">&sect; 04</span><h2>Practical Information</h2></div>
       <div class="info-card"><span class="info-card-title">Venue</span><p>The conference will take place in the <strong>Professor Stuart Hall Building</strong>, Goldsmiths, University of London, New Cross, London SE14 6NW.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;">From the main campus entrance at the Richard Hoggart Building: enter and turn right, then left, walking to the back of the building past the caf&eacute; and Refectory. Exit onto the college green &mdash; the PSH Building is on the other side, up the hill.</p></div>
-      <div class="info-card"><span class="info-card-title">Getting There</span><p>We recommend the <strong>Citymapper app</strong> for navigating London. Use contactless payment, Oyster card, or mobile pay on public transport.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;"><strong>By train (recommended):</strong> New Cross Station (2&ndash;3 min walk) or New Cross Gate Station (5&ndash;7 min walk). Direct connections from London Bridge (approx. 7 minutes).</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>From airports:</strong> Heathrow: Elizabeth/Piccadilly Line to central London, then via London Bridge (60&ndash;75 min). Gatwick: direct train to London Bridge (30 min), then to New Cross (7 min). London City: DLR to Canada Water, then Overground to New Cross (approx. 40 min).</p></div>
-      <div class="info-card"><span class="info-card-title">Accommodation</span><p>Goldsmiths is well connected by public transport, so anywhere central works well.</p><p style="font-size:0.83rem;color:#555;margin-top:0.5rem;"><strong>Near Goldsmiths:</strong> Staycity Aparthotels London Greenwich, DoubleTree by Hilton London Greenwich, Premier Inn London Greenwich, Novotel London Greenwich.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>Higher-end:</strong> InterContinental London &ndash; The O2, London Marriott Hotel Canary Wharf.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;">Accommodation costs are not covered by the organisers.</p></div>
-      <div class="info-card"><span class="info-card-title">Catering</span><p>Lunch vouchers for the <strong>Refectory canteen</strong> will be provided each day. The caf&eacute; in the Professor Stuart Hall Building will be open for coffee, tea and light refreshments at your own cost. If you have dietary requirements not noted in your RSVP, please contact the organisers.</p></div>
-      <div class="info-card"><span class="info-card-title">Presentations</span><p>Each presentation is <strong>15 minutes</strong>, followed by a 30-minute panel discussion at the end of each session. The chair will keep time. Please bring your own laptop if you wish to present with slides &mdash; most rooms have HDMI connections, but bring your own adapters. We recommend not relying on campus Wi-Fi for your presentation.</p></div>
+      <div class="info-card"><span class="info-card-title">Getting There</span><p>We recommend the <strong>Citymapper app</strong> for navigating London. Use contactless payment, Oyster card, or mobile pay on public transport.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>By train:</strong> New Cross Station (2&ndash;3 min walk) or New Cross Gate Station (5&ndash;7 min walk). Direct from London Bridge (approx. 7 min).</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>From airports:</strong> Heathrow: Elizabeth/Piccadilly Line to central London, then via London Bridge (60&ndash;75 min). Gatwick: direct to London Bridge (30 min). London City: DLR to Canada Water, then Overground to New Cross (approx. 40 min).</p></div>
+      <div class="info-card"><span class="info-card-title">Accommodation</span><p><strong>Near Goldsmiths:</strong> Staycity Aparthotels London Greenwich, DoubleTree by Hilton London Greenwich, Premier Inn London Greenwich, Novotel London Greenwich.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;"><strong>Higher-end:</strong> InterContinental London &ndash; The O2, London Marriott Hotel Canary Wharf.</p><p style="font-size:0.83rem;color:#555;margin-top:0.4rem;">Accommodation costs are not covered by the organisers.</p></div>
+      <div class="info-card"><span class="info-card-title">Catering</span><p>Lunch vouchers for the <strong>Refectory canteen</strong> will be provided each day. The caf&eacute; in the PSH Building will be open for coffee and refreshments at your own cost.</p></div>
+      <div class="info-card"><span class="info-card-title">Presentations</span><p>Each presentation is <strong>15 minutes</strong>, followed by a 30-minute panel discussion. Please bring your own laptop and adapters. HDMI is available in all rooms. Do not rely on campus Wi-Fi for your presentation.</p></div>
       <div class="info-card"><span class="info-card-title">Wi-Fi</span><p>Eduroam is available for participants from member institutions. Campus guest Wi-Fi is available for all other attendees.</p></div>
-      <div class="info-card"><span class="info-card-title">Accessibility</span><p>If you have any accessibility requirements or adjustment needs, please get in touch with the organisers. A campus accessibility map is available at <a href="https://www.gold.ac.uk/media/docs/about/Campus-Map-Accessibility.pdf" style="color:var(--blue);" target="_blank">gold.ac.uk</a>.</p></div>
-      <div class="info-card"><span class="info-card-title">Visa &amp; Invitation Letters</span><p>If you are travelling from outside the UK, please remember to check visa requirements well in advance. If you require a formal invitation letter, please contact Ida at <a href="/cdn-cgi/l/email-protection#d8b1bcb1ae98b1acadf6bcb3" style="color:var(--blue);"><span class="__cf_email__" data-cfemail="1f767b76695f766b6a317b74">[email&#160;protected]</span></a> and allow sufficient processing time ahead of your visa appointment.</p></div>
+      <div class="info-card"><span class="info-card-title">Accessibility</span><p>If you have accessibility requirements, please contact the organisers. A campus accessibility map is available at <a href="https://www.gold.ac.uk/media/docs/about/Campus-Map-Accessibility.pdf" style="color:var(--blue);" target="_blank">gold.ac.uk</a>.</p></div>
+      <div class="info-card"><span class="info-card-title">Visa &amp; Invitation Letters</span><p>If travelling from outside the UK, check visa requirements well in advance. For a formal invitation letter contact Ida at <a href="mailto:idiv@itu.dk" style="color:var(--blue);">idiv@itu.dk</a>.</p></div>
     </section>
 
     <section id="forum">
       <div class="section-head"><span class="section-num">&sect; 05</span><h2>Forum</h2></div>
-      <p>A space for participants to ask questions and share notes ahead of the symposium. All posts are visible to organisers and fellow attendees.</p>
+      <p>A space for participants to ask questions and share notes ahead of the symposium.</p>
       <div id="forum-posts">
-        <div class="forum-post">
-          <div class="forum-post-header"><div class="forum-author">From: <span>A Participant</span></div><div class="forum-ts">27 Jan 2026</div></div>
-          <div class="forum-body">It would be helpful to know the start and end times for both days so I can arrange rail travel. Is this information available yet?</div>
-        </div>
-        <div class="forum-post">
-          <div class="forum-post-header"><div class="forum-author">From: <span>A Participant</span></div><div class="forum-ts">27 Jan 2026</div></div>
-          <div class="forum-body">Is it recommended to prepare a full paper for the presentation? And do you plan to develop a special issue based on the conference?</div>
-        </div>
-        <div class="forum-post">
-          <div class="forum-post-header"><div class="forum-author">From: <span>Organisers</span></div><div class="forum-ts">22 Feb 2026</div></div>
-          <div class="forum-body">Thank you for your questions. A full paper is not required &mdash; a well-developed draft or detailed notes are sufficient. On the special issue: yes, we are planning an edited volume or special issue following the symposium. Start and end times are now confirmed &mdash; see the programme above.</div>
-        </div>
+        <div class="forum-post"><div class="forum-post-header"><div class="forum-author">From: <span>A Participant</span></div><div class="forum-ts">27 Jan 2026</div></div><div class="forum-body">It would be helpful to know the start and end times for both days so I can arrange rail travel. Is this information available yet?</div></div>
+        <div class="forum-post"><div class="forum-post-header"><div class="forum-author">From: <span>A Participant</span></div><div class="forum-ts">27 Jan 2026</div></div><div class="forum-body">Is it recommended to prepare a full paper for the presentation? And do you plan to develop a special issue based on the conference?</div></div>
+        <div class="forum-post"><div class="forum-post-header"><div class="forum-author">From: <span>Organisers</span></div><div class="forum-ts">22 Feb 2026</div></div><div class="forum-body">Thank you for your questions. A full paper is not required &mdash; a well-developed draft or detailed notes are sufficient. On the special issue: yes, we are planning an edited volume or special issue following the symposium. Start and end times are now confirmed &mdash; see the programme above.</div></div>
       </div>
       <div class="forum-input-area">
         <textarea id="forum-msg" placeholder="Post a question or note to organisers and fellow participants&hellip;"></textarea>
@@ -359,16 +310,14 @@
       <span class="side-title">Keynote Speakers</span>
       <button class="keynote-card" onclick="openModal('rikap')"><div class="keynote-name">Cecilia Rikap</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
       <button class="keynote-card" onclick="openModal('gerbaudo')"><div class="keynote-name">Paolo Gerbaudo</div><div class="keynote-role">Session One</div><div class="keynote-hint">Read abstract &rarr;</div></button>
-      
       <button class="keynote-card" onclick="openModal('nguyen')"><div class="keynote-name">Dang Nguyen</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
       <button class="keynote-card" onclick="openModal('mckelvey')"><div class="keynote-name">Fenwick McKelvey</div><div class="keynote-role">Session Two</div><div class="keynote-hint">Read abstract &rarr;</div></button>
-      
     </div>
     <div class="side-block">
       <span class="side-title">Contact</span>
       <p style="font-family:var(--sans);font-size:0.82rem;font-weight:300;margin-bottom:0.75rem;">For questions about programme, visa letters, or practical arrangements:</p>
-      <a class="contact-link" href="/cdn-cgi/l/email-protection#8ce5fee5e2eda2fcedfcedf6f9cce5f8f9a2e8e7"><span class="__cf_email__" data-cfemail="a4cdd6cdcac58ad4c5d4c5ded1e4cdd0d18ac0cf">[email&#160;protected]</span></a>
-      <a class="contact-link" href="/cdn-cgi/l/email-protection#bed7dad7c8fed7cacb90dad5"><span class="__cf_email__" data-cfemail="5039343926103924257e343b">[email&#160;protected]</span></a>
+      <a class="contact-link" href="mailto:irina.papazu@itu.dk">irina.papazu@itu.dk</a>
+      <a class="contact-link" href="mailto:idiv@itu.dk">idiv@itu.dk</a>
     </div>
     <div class="side-block">
       <span class="side-title">Hosted by</span>
@@ -382,7 +331,6 @@
   <p>DIGI-FRONT Project &middot; Goldsmiths, University of London</p>
 </footer>
 
-<!-- MODALS -->
 <div class="modal-overlay" id="modal-rikap" onclick="if(event.target===this)closeModal('rikap')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('rikap')">&#x2715; Close</button>
@@ -411,24 +359,13 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-dencik" onclick="if(event.target===this)closeModal('dencik')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('dencik')">&#x2715; Close</button>
-    <div class="modal-session">Keynote Session One &mdash; Respondent</div>
-    <div class="modal-name">Lina Dencik</div>
-    <div class="modal-title">Respondent</div>
-    <div class="modal-body"><p>Abstract to be announced.</p></div>
-  </div>
-</div>
-
 <div class="modal-overlay" id="modal-nguyen" onclick="if(event.target===this)closeModal('nguyen')">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('nguyen')">&#x2715; Close</button>
     <div class="modal-session">Keynote Session Two</div>
     <div class="modal-name">Dang Nguyen</div>
-    
     <div class="modal-body">
-      <p>Statecraft, Sovereignty and Digital Government are intensely gendered projects, organised around masculinised fantasies of command, foresight, and control that are materially embedded in technical systems and administrative routines.</p>
+      <p>Statecraft, Sovereignty and Digital Government are intensely gendered projects. They are organised around masculinised fantasies of command, foresight, and control that are materially embedded in technical systems and administrative routines.</p>
       <p>Digital governance does not simply modernise the state &mdash; it hardens particular sovereign dispositions by automating judgement, distancing responsibility, and reconfiguring care as compliance. Gender makes visible how authority is performed and protected in these systems, especially through claims of neutrality, efficiency, and inevitability.</p>
       <p>This paper contends that contemporary digital statecraft functions as a technology of power that consolidates sovereignty while disavowing the violence and exclusions it produces. The paper closes by considering how attention to gender unsettles the apparent coherence of digital sovereignty, opening it to critique, friction, and re-composition.</p>
     </div>
@@ -449,17 +386,7 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="modal-gehl" onclick="if(event.target===this)closeModal('gehl')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('gehl')">&#x2715; Close</button>
-    <div class="modal-session">Keynote Session Two &mdash; Respondent</div>
-    <div class="modal-name">Rob W. Gehl</div>
-    <div class="modal-title">Respondent</div>
-    <div class="modal-body"><p>Abstract to be announced.</p></div>
-  </div>
-</div>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function openModal(id) {
     document.getElementById('modal-' + id).classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -487,4 +414,17 @@
     post.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s';
     post.innerHTML = '<div class="forum-post-header"><div class="forum-author">From: <span>' + name + '</span></div><div class="forum-ts">' + dateStr + '</div></div><div class="forum-body">' + msg + '</div>';
     document.getElementById('forum-posts').appendChild(post);
-    setTimeout
+    setTimeout(function(){post.style.opacity='1';post.style.transform='none';},10);
+    document.getElementById('forum-msg').value='';
+    document.getElementById('forum-name').value='';
+  }
+  function filterSpeakers() {
+    var q = document.getElementById('speaker-search').value.toLowerCase();
+    document.querySelectorAll('#speaker-table tbody tr').forEach(function(tr) {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
