@@ -94,6 +94,25 @@
   #speaker-table thead th { padding: 0.55rem 0.75rem; text-align: left; font-weight: 600; font-family: var(--sans); }
   #speaker-table tbody tr:nth-child(even) { background: #f7f9ff; }
   #speaker-table tbody td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.45; }
+
+  
+  .abstract-card-meta { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); margin-top: 0.6rem; }
+
+  .panel-filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .panel-filter-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--rule); background: #fff; color: var(--muted); padding: 0.35rem 0.7rem; cursor: pointer; transition: all 0.15s; }
+  .panel-filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .panel-filter-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .abstract-card { border: 1px solid var(--rule); padding: 1.2rem 1.4rem; margin-bottom: 0.75rem; transition: border-color 0.15s; }
+  .abstract-card:hover { border-color: var(--accent); }
+  .abstract-card-panel { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .abstract-card-speakers { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+  .abstract-card-title { font-size: 0.88rem; font-style: italic; color: var(--ink); margin-bottom: 0.6rem; }
+  .abstract-card-body { font-size: 0.82rem; font-weight: 300; color: #444; line-height: 1.7; max-height: 80px; overflow: hidden; position: relative; }
+  .abstract-card-body.expanded { max-height: none; }
+  .abstract-card-body:not(.expanded)::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(transparent, #fff); }
+  .abstract-card-read-more { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); cursor: pointer; margin-top: 0.4rem; display: inline-block; }
+  .abstract-card-meta { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); margin-top: 0.6rem; }
+
   footer { border-top: 1px solid var(--rule); padding: 2rem 3rem; text-align: center; }
   footer p { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--muted); margin: 0.2rem 0; }
   @media (max-width: 768px) {
@@ -117,7 +136,7 @@
     <a href="#programme">Programme</a>
     <a href="#practical">Practical Info</a>
     <a href="#forum">Forum</a>
-    <a href="#find-panel">Find Your Panel</a>
+    <a href="#abstracts">Abstracts</a><a href="#find-panel">Find Your Panel</a>
   </div>
   <span class="nav-brand">16&ndash;17 APRIL 2026</span>
 </nav>
@@ -126,11 +145,16 @@
   <div class="hero-label">Symposium &middot; April 2026</div>
   <h1>Statecraft, Sovereignty<br>&amp; <em>Digital Government</em></h1>
   <p class="hero-intro">The symposium takes place at Goldsmiths, University of London, bringing together scholars within Science and Technology Studies (STS), software and platform studies, media studies, international relations, political theory and cultural studies to encourage conversation and collaboration through panels curated by the organisers. The symposium is hosted by the DIGI-FRONT project, led by Irina Papazu (IT-University of Copenhagen) and Jessamy Perriam (ITU/Australian National University), and co-hosted by Nathaniel Tkacz (Goldsmiths, University of London).</p>
+    <div style="margin-bottom:1.5rem;">
+    <a href="programme_abstracts.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--blue);color:#fff;padding:0.55rem 1.1rem;text-decoration:none;transition:background 0.15s;">
+      &#8595; Programme &amp; Abstracts (PDF)
+    </a>
+  </div>
   <div class="hero-meta">
     <div class="meta-item"><span class="meta-label">Dates</span><span class="meta-value">16&ndash;17 April 2026</span></div>
     <div class="meta-item"><span class="meta-label">Venue</span><span class="meta-value">Goldsmiths, University of London</span></div>
-    <div class="meta-item"><span class="meta-label">Registered Attendees</span><span class="meta-value">88</span></div>
-    <div class="meta-item"><span class="meta-label">Accepted Abstracts</span><span class="meta-value">66</span></div>
+    
+    
   </div>
 </div>
 
@@ -223,6 +247,33 @@
       </div>
     </section>
 
+    <section id="abstracts">
+      <div class="section-head"><span class="section-num">&sect; 07</span><h2>Explore Abstracts</h2></div>
+      <p>Browse all accepted abstracts by panel.</p>
+      <div class="panel-filters">
+      <button class="panel-filter-btn active" onclick="filterPanel('all', this)">All panels</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Infrastructural Power & Politics I', this)">Infrastructural Power &amp; Politics I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Infrastructural Power & Politics II', this)">Infrastructural Power &amp; Politics II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('AI in the State, Expertise & Legitimacy I', this)">AI in the State, Expertise &amp; Legitimacy I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('AI in the State, Expertise & Legitimacy II', this)">AI in the State, Expertise &amp; Legitimacy II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Authoritarian Currents I', this)">Authoritarian Currents I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Authoritarian Currents II', this)">Authoritarian Currents II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Transformation I', this)">Digital Transformation I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Transformation II', this)">Digital Transformation II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Transformation III', this)">Digital Transformation III</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Sovereignty in Theory & Practice I', this)">Digital Sovereignty in Theory &amp; Practice I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Sovereignty in Theory & Practice II', this)">Digital Sovereignty in Theory &amp; Practice II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Sovereignty: Alternatives & Lock-ins I', this)">Digital Sovereignty: Alternatives &amp; Lock-ins I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Sovereignty: Alternatives & Lock-ins II', this)">Digital Sovereignty: Alternatives &amp; Lock-ins II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Digital Sovereignty: Alternatives & Lock-ins III', this)">Digital Sovereignty: Alternatives &amp; Lock-ins III</button>
+      <button class="panel-filter-btn" onclick="filterPanel('State & Private Entanglements', this)">State &amp; Private Entanglements</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Citizens, Users & Citizenship I', this)">Citizens, Users &amp; Citizenship I</button>
+      <button class="panel-filter-btn" onclick="filterPanel('Citizens, Users & Citizenship II', this)">Citizens, Users &amp; Citizenship II</button>
+      <button class="panel-filter-btn" onclick="filterPanel('TBD — Ask Greve & others', this)">TBD — Ask Greve &amp; others</button>
+      </div>
+      <div id="abstract-cards">
+    </section>
+
     <section id="find-panel">
       <div class="section-head"><span class="section-num">&sect; 06</span><h2>Find Your Panel</h2></div>
       <p>Search your name to find your day, time, room and panel.</p>
@@ -250,14 +301,12 @@
         <tr><td>Petter Falk</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH 302</td><td>Digital Transformation II</td></tr>
         <tr><td>Samuele Fratini</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice II</td></tr>
         <tr><td>Ruth Garland</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH LG01</td><td>Authoritarian Currents II</td></tr>
-        <tr><td>Camille Girard-Chanudet</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 326</td><td>AI in the State, Expertise & Legitimacy II</td></tr>
         <tr><td>Emilie Mørch Groth</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 302</td><td>Digital Sovereignty: Alternatives & Lock-ins I</td></tr>
         <tr><td>Bidisha Chaudhuri & Sookthi Kav</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 326</td><td>State & Private Entanglements</td></tr>
         <tr><td>Siddharth de Souza, Emrys Schoemaker & Thomas Kirk</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH 326</td><td>State & Private Entanglements</td></tr>
         <tr><td>Lasse Uhrskov Kristensen</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH 302</td><td>Digital Sovereignty: Alternatives & Lock-ins I</td></tr>
         <tr><td>Eva Iris Otto, Sofie Flensburg & Signe Sophus Lai</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH LG01</td><td>Digital Sovereignty: Alternatives & Lock-ins III</td></tr>
         <tr><td>Lianrui Jia & Ting Luo</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH LG01</td><td>Authoritarian Currents II</td></tr>
-        <tr><td>Harsha Man Maharjan</td><td>Fri 17 Apr</td><td>14:00–15:40</td><td>PSH LG01</td><td>Digital Sovereignty: Alternatives & Lock-ins III</td></tr>
         <tr><td>Bastian Manteuffel</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics I</td></tr>
         <tr><td>Loup Cellard & Clément Marquet</td><td>Fri 17 Apr</td><td>09:30–11:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics II</td></tr>
         <tr><td>Sandeep Mertia</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice I</td></tr>
@@ -286,7 +335,6 @@
         <tr><td>Pedro Burity, Rafael Grohmann, Kenzo Soares Seto & Rafael De Toni</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH 326</td><td>Digital Sovereignty: Alternatives & Lock-ins II</td></tr>
         <tr><td>Alexei Tsinovoi &amp; Ask Greve</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH LG01</td><td>Digital Transformation III</td></tr>
         <tr><td>Sruthi Vanguri</td><td>Fri 17 Apr</td><td>11:10–12:40</td><td>PSH LG01</td><td>Digital Transformation III</td></tr>
-        <tr><td>Boxi Wu</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH LG01</td><td>Infrastructural Power & Politics I</td></tr>
         <tr><td>Krystian Łukasik & Renata Włoch</td><td>Thu 16 Apr</td><td>16:10–17:40</td><td>PSH 326</td><td>Digital Transformation I</td></tr>
         <tr><td>Roger Burrows & Nicholas Gane</td><td>Thu 16 Apr</td><td>11:30–13:00</td><td>PSH 302</td><td>Digital Sovereignty in Theory & Practice I</td></tr>
         <tr><td>Dmitry Kuznetsov &amp; Alex Gekker</td><td>Thu 16 Apr</td><td>14:20–15:50</td><td>PSH LG01</td><td>Authoritarian Currents I</td></tr>
@@ -384,7 +432,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function openModal(id) {
     document.getElementById('modal-' + id).classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -415,6 +463,54 @@
     setTimeout(function(){post.style.opacity='1';post.style.transform='none';},10);
     document.getElementById('forum-msg').value='';
     document.getElementById('forum-name').value='';
+  }
+
+  function filterPanel(panel, btn) {
+    document.querySelectorAll('.panel-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.abstract-card').forEach(function(card) {
+      if (panel === 'all' || card.dataset.panel === panel) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  document.querySelectorAll('.abstract-card-body').forEach(function(body) {
+    var toggle = document.createElement('span');
+    toggle.className = 'abstract-card-read-more';
+    toggle.textContent = 'Read more →';
+    body.parentNode.insertBefore(toggle, body.nextSibling);
+    toggle.addEventListener('click', function() {
+      body.classList.toggle('expanded');
+      toggle.textContent = body.classList.contains('expanded') ? 'Read less ↑' : 'Read more →';
+    });
+  });
+
+  function filterPanel(panel, btn) {
+    document.querySelectorAll('.panel-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.abstract-card').forEach(function(card) {
+      card.style.display = (panel === 'all' || card.dataset.panel === panel) ? '' : 'none';
+    });
+  }
+  document.querySelectorAll('.abstract-card-read-more').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var body = toggle.previousElementSibling;
+      while (body && !body.classList.contains('abstract-card-body')) {
+        body = body.previousElementSibling;
+      }
+      if (body) {
+        body.classList.toggle('expanded');
+        toggle.innerHTML = body.classList.contains('expanded') ? 'Read less &uarr;' : 'Read more &rarr;';
+      }
+    });
+  });
+
+    var q = document.getElementById('speaker-search').value.toLowerCase();
+    document.querySelectorAll('#speaker-table tbody tr').forEach(function(tr) {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
   }
   function filterSpeakers() {
     var q = document.getElementById('speaker-search').value.toLowerCase();
