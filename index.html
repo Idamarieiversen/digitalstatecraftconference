@@ -460,7 +460,21 @@
     var post = document.createElement('div');
     post.className = 'forum-post';
     post.style.cssText = 'opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s';
-    post.innerHTML = '<div class="forum-post-header"><div class="forum-author">From: <span>' + name + '</span></div><div class="forum-ts">' + dateStr + '</div></div><div class="forum-body">' + msg + '</div>';
+    var header = document.createElement('div');
+    header.className = 'forum-post-header';
+    var author = document.createElement('div');
+    author.className = 'forum-author';
+    author.innerHTML = 'From: ' + document.createElement('span').appendChild(document.createTextNode(name)).parentNode.outerHTML;
+    var ts = document.createElement('div');
+    ts.className = 'forum-ts';
+    ts.textContent = dateStr;
+    header.appendChild(author);
+    header.appendChild(ts);
+    var body = document.createElement('div');
+    body.className = 'forum-body';
+    body.textContent = msg;
+    post.appendChild(header);
+    post.appendChild(body);
     document.getElementById('forum-posts').appendChild(post);
     setTimeout(function(){post.style.opacity='1';post.style.transform='none';},10);
     document.getElementById('forum-msg').value='';
@@ -481,7 +495,7 @@
       }
       if (body) {
         body.classList.toggle('expanded');
-        toggle.innerHTML = body.classList.contains('expanded') ? 'Read less &uarr;' : 'Read more &rarr;';
+        toggle.innerHTML = body.classList.contains('expanded') ? 'Read less &#8593;' : 'Read more &#8594;';
       }
     });
   });
