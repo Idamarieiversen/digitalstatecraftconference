@@ -432,6 +432,8 @@
   </div>
 </div>
 
+
+
 <script>
   function openModal(id) {
     document.getElementById('modal-' + id).classList.add('active');
@@ -464,29 +466,6 @@
     document.getElementById('forum-msg').value='';
     document.getElementById('forum-name').value='';
   }
-
-  function filterPanel(panel, btn) {
-    document.querySelectorAll('.panel-filter-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    document.querySelectorAll('.abstract-card').forEach(function(card) {
-      if (panel === 'all' || card.dataset.panel === panel) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-  document.querySelectorAll('.abstract-card-body').forEach(function(body) {
-    var toggle = document.createElement('span');
-    toggle.className = 'abstract-card-read-more';
-    toggle.textContent = 'Read more →';
-    body.parentNode.insertBefore(toggle, body.nextSibling);
-    toggle.addEventListener('click', function() {
-      body.classList.toggle('expanded');
-      toggle.textContent = body.classList.contains('expanded') ? 'Read less ↑' : 'Read more →';
-    });
-  });
-
   function filterPanel(panel, btn) {
     document.querySelectorAll('.panel-filter-btn').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
@@ -506,12 +485,6 @@
       }
     });
   });
-
-    var q = document.getElementById('speaker-search').value.toLowerCase();
-    document.querySelectorAll('#speaker-table tbody tr').forEach(function(tr) {
-      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
-    });
-  }
   function filterSpeakers() {
     var q = document.getElementById('speaker-search').value.toLowerCase();
     document.querySelectorAll('#speaker-table tbody tr').forEach(function(tr) {
