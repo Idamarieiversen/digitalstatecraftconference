@@ -916,4 +916,11 @@ As digital sovereignty discourse gains prominence in international geopolitics, 
         body = body.previousElementSibling;
       }
       if (body) {
-        body
+        body.classList.toggle('expanded');
+        toggle.textContent = body.classList.contains('expanded') ? 'Show less' : 'Read more →';
+      }
+    });
+  });
+</script>
+</body>
+</html>
